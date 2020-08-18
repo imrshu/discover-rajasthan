@@ -86,7 +86,9 @@
 							<h1><a href="index.html" title="City tours travel template">BesTours Travel&amp;Excursion Multipurpose Template</a></h1>
 						</div>
 					</div>
-					
+
+					{% include 'navbar.html' %}
+
 				</div>
 			</div>
 			<!-- container -->
@@ -95,39 +97,8 @@
 	</div>
 	<!-- End Header 1-->
 
-	<!-- Slider -->
-	<div id="full-slider-wrapper">
-		<div id="layerslider" style="width:100%;height:600px;">
-			<!-- first slide -->
-			<div class="ls-slide" data-ls="slidedelay: 5000; transition2d:85;">
-				<img src="img/slides/slide_2.jpg" class="ls-bg" alt="Slide background">
-				<h3 class="ls-l slide_typo" style="top: 45%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">More than 100 tours available</h3>
-				<p class="ls-l slide_typo_2" style="top:55%; left:50%;" data-ls="durationin:2000;delayin:1000;easingin:easeOutElastic;">
-					Historic Buildings - Attractions - Museums
-				</p>
-				<a class="ls-l button_intro_2 outline" style="top:65%; left:50%;white-space: nowrap;" data-ls="durationin:2000;delayin:1400;easingin:easeOutElastic;" href='grid.html'>Read more</a>
-			</div>
-			<!-- second slide -->
-			<div class="ls-slide" data-ls="slidedelay:5000; transition2d:103;">
-				<img src="img/slides/slide_3.jpg" class="ls-bg" alt="Slide background">
-				<h3 class="ls-l slide_typo" style="top: 45%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">Discover Fantastic Places</h3>
-				<p class="ls-l slide_typo_2" style="top:55%; left:50%;" data-ls="durationin:2000;delayin:1000;easingin:easeOutElastic;">
-					We offer a variety of services and options
-				</p>
-				<a class="ls-l button_intro_2 outline" style="top:65%; left:50%;white-space: nowrap;" data-ls="durationin:2000;delayin:1400;easingin:easeOutElastic;" href='grid.html'>Read more</a>
-			</div>
-			<!-- third slide -->
-			<div class="ls-slide" data-ls="slidedelay: 5000; transition2d:5;">
-				<img src="img/slides/slide_1.jpg" class="ls-bg" alt="Slide background">
-				<h3 class="ls-l slide_typo" style="top:45%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">Enjoy a Lovely Tour</h3>
-				<p class="ls-l slide_typo_2" style="top:55%; left:50%;" data-ls="durationin:2000;delayin:1000;easingin:easeOutElastic;">
-					Buildings - Attractions - Museums
-				</p>
-				<a class="ls-l button_intro_2" style="top:65%; left:50%;" data-ls="durationin:2000;delayin:1400;easingin:easeOutElastic;" href='grid.html'>Explore</a>
-			</div>
-		</div>
-	</div>
-	<!-- End layerslider -->
+	
+	{% include 'slider.html' %}
 
 	<section class="wrapper">
 		<div class="divider_border"></div>
@@ -138,256 +109,15 @@
 				<h2>Our <span>Top</span> Museum Tours</h2>
 				<p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
 			</div>
-			<div class="row">
-				<div class="col-md-4 col-sm-6 wow fadeIn animated" data-wow-delay="0.2s">
-					<div class="img_wrapper">
-						<div class="ribbon">
-							<span>Popular</span>
-						</div>
-						<div class="price_grid">
-							<sup>$</sup>23
-						</div>
-						<div class="img_container">
-							<a href="detail-page.html">
-								<img src="img/tour_list_1.jpg" width="800" height="533" class="img-responsive" alt="">
-								<div class="short_info">
-									<h3>Discover Louvre</h3>
-									<em>Duration 45 mins</em>
-									<p>
-										A quam morbi ut arcu, eget neque molestie, ullamcorper congue pharetra, hendrerit odio consectetuer.
-									</p>
-									<div class="score_wp">Superb
-										<div class="score">7.5</div>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<!-- End img_wrapper -->
-				</div>
-
-				<div class="col-md-4 col-sm-6 wow fadeIn animated" data-wow-delay="0.2s">
-					<div class="img_wrapper">
-						<div class="ribbon">
-							<span>Popular</span>
-						</div>
-						<div class="price_grid">
-							<sup>$</sup>19
-						</div>
-						<div class="img_container">
-							<a href="detail-page.html">
-								<img src="img/tour_list_2.jpg" width="800" height="533" class="img-responsive" alt="">
-								<div class="short_info">
-									<h3>Michelangelo</h3>
-									<em> Duration 60 min</em>
-									<p>
-										A quam morbi ut arcu, eget neque molestie, ullamcorper congue pharetra, hendrerit odio consectetuer.
-									</p>
-									<div class="score_wp">Superb
-										<div class="score">7.5</div>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<!-- End img_wrapper -->
-				</div>
-
-				<div class="col-md-4 col-sm-6 wow fadeIn animated" data-wow-delay="0.2s">
-					<div class="img_wrapper">
-						<div class="ribbon">
-							<span>Popular</span>
-						</div>
-						<div class="price_grid">
-							<sup>$</sup>32
-						</div>
-						<div class="img_container">
-							<a href="detail-page.html">
-								<img src="img/tour_list_5.jpg" width="800" height="533" class="img-responsive" alt="">
-								<div class="short_info">
-									<h3>The Egypthians</h3>
-									<em>Duration 60 min</em>
-									<p>
-										A quam morbi ut arcu, eget neque molestie, ullamcorper congue pharetra, hendrerit odio consectetuer.
-									</p>
-									<div class="score_wp">Superb
-										<div class="score">7.5</div>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<!-- End img_wrapper -->
-				</div>
-
-				<div class="col-md-4 col-sm-6 wow fadeIn animated" data-wow-delay="0.2s">
-					<div class="img_wrapper">
-						<div class="ribbon">
-							<span>Popular</span>
-						</div>
-						<div class="price_grid">
-							<sup>$</sup>20
-						</div>
-						<div class="img_container">
-							<a href="detail-page.html">
-								<img src="img/tour_list_6.jpg" width="800" height="533" class="img-responsive" alt="">
-								<div class="short_info">
-									<h3>The Mongolians</h3>
-									<em>Duration 90 min</em>
-									<p>
-										A quam morbi ut arcu, eget neque molestie, ullamcorper congue pharetra, hendrerit odio consectetuer.
-									</p>
-									<div class="score_wp">Superb
-										<div class="score">7.5</div>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<!-- End img_wrapper -->
-				</div>
-
-				<div class="col-md-4 col-sm-6 wow fadeIn animated" data-wow-delay="0.2s">
-					<div class="img_wrapper">
-						<div class="ribbon">
-							<span>Popular</span>
-						</div>
-						<div class="price_grid">
-							<sup>$</sup>22
-						</div>
-						<div class="img_container">
-							<a href="detail-page.html">
-								<img src="img/tour_list_7.jpg" width="800" height="533" class="img-responsive" alt="">
-								<div class="short_info">
-									<h3>Mayas</h3>
-									<em>Duration 45 min</em>
-									<p>
-										A quam morbi ut arcu, eget neque molestie, ullamcorper congue pharetra, hendrerit odio consectetuer.
-									</p>
-									<div class="score_wp">Superb
-										<div class="score">7.5</div>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<!-- End img_wrapper -->
-				</div>
-
-				<div class="col-md-4 col-sm-6 wow fadeIn animated" data-wow-delay="0.2s">
-					<div class="img_wrapper">
-						<div class="ribbon">
-							<span>Popular</span>
-						</div>
-						<div class="price_grid">
-							<sup>$</sup>42
-						</div>
-						<div class="img_container">
-							<a href="detail-page.html">
-								<img src="img/tour_list_9.jpg" width="800" height="533" class="img-responsive" alt="">
-								<div class="short_info">
-									<h3>Modern Art</h3>
-									<em>Duration 45 min</em>
-									<p>
-										A quam morbi ut arcu, eget neque molestie, ullamcorper congue pharetra, hendrerit odio consectetuer.
-									</p>
-									<div class="score_wp">Superb
-										<div class="score">7.5</div>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<!-- End img_wrapper -->
-				</div>
-			</div>
-			<!-- End row -->
+			
+			{% include 'tours.html' %}
 
 			<div class="main_title_2">
 				<h3>View other <span>popular</span> tours</h3>
 				<p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
 			</div>
-			<div class="row list_tours">
-				<div class="col-sm-6">
-					<h3>New Tours</h3>
-					<ul>
-						<li>
-							<div>
-								<a href="detail-page.html">
-									<figure><img src="img/thumb_tabs_1.jpg" alt="thumb" class="img-rounded" width="60" height="60">
-									</figure>
-									<h4>Adipisci voluptatum ea</h4>
-									<small>Duration 1hr 20 minutes</small>
-									<span class="price_list">$23</span>
-								</a>
-							</div>
-						</li>
-						<li>
-							<div>
-								<a href="detail-page.html">
-									<figure><img src="img/thumb_tabs_2.jpg" alt="thumb" class="img-rounded" width="60" height="60">
-									</figure>
-									<h4>Splendide suscipiantur</h4>
-									<small>Duration 1hr 20 minutes</small>
-									<span class="price_list">$23</span>
-								</a>
-							</div>
-						</li>
-						<li>
-							<div>
-								<a href="detail-page.html">
-									<figure><img src="img/thumb_tabs_3.jpg" alt="thumb" class="img-rounded" width="60" height="60">
-									</figure>
-									<h4>Vide omnium perpetua</h4>
-									<small>Duration 1hr 20 minutes</small>
-									<span class="price_list">$23</span>
-								</a>
-							</div>
-						</li>
-					</ul>
-				</div>
-
-				<div class="col-sm-6">
-					<h3>Special offers</h3>
-					<ul>
-						<li>
-							<div>
-								<a href="detail-page.html">
-									<figure><img src="img/thumb_tabs_4.jpg" alt="thumb" class="img-rounded" width="60" height="60">
-									</figure>
-									<h4>Quo quidam vidisse</h4>
-									<small>Duration 1hr 20 minutes</small>
-									<span class="price_list"><em>$23</em>$19</span>
-								</a>
-							</div>
-						</li>
-						<li>
-							<div>
-								<a href="detail-page.html">
-									<figure><img src="img/thumb_tabs_5.jpg" alt="thumb" class="img-rounded" width="60" height="60">
-									</figure>
-									<h4>Integre alterum</h4>
-									<small>Duration 1hr 20 minutes</small>
-									<span class="price_list"><em>$23</em>$19</span>
-								</a>
-							</div>
-						</li>
-						<li>
-							<div>
-								<a href="detail-page.html">
-									<figure><img src="img/thumb_tabs_6.jpg" alt="thumb" class="img-rounded" width="60" height="60">
-									</figure>
-									<h4>Tation mollis appetere</h4>
-									<small>Duration 1hr 20 minutes</small>
-									<span class="price_list"><em>$23</em>$19</span>
-								</a>
-							</div>
-						</li>
-					</ul>
-				</div>
-
-			</div>
-			<!-- End row -->
+			
+			{% include 'popular_tours.html' %}
 
 			<p class="text-center add_bottom_45">
 				<a href="grid.html" class="btn_1">Explore all tours (24)</a>
@@ -399,36 +129,12 @@
 
 	<section class="container margin_60">
 		<div class="main_title">
-			<h3>Why choose BesTours</h3>
+			<h3>Why choose us</h3>
 			<p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
 		</div>
-		<div class="row">
-			<div class="col-sm-4">
-				<div class="box_how">
-					<div class="icon_how"><span class="icon_set_1_icon-81"></span>
-					</div>
-					<h4>Best price guarantee</h4>
-					<p>Lorem ipsum dolor sit amet, et cum civibus referrentur, at propriae forensibus qui. Duo aliquip necessitatibus ne.</p>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="box_how">
-					<div class="icon_how"><span class="icon_set_1_icon-94"></span>
-					</div>
-					<h4>Professional local guides</h4>
-					<p>Lorem ipsum dolor sit amet, et cum civibus referrentur, at propriae forensibus qui. Duo aliquip necessitatibus ne.</p>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="box_how">
-					<div class="icon_how"><span class="icon_set_1_icon-92"></span>
-					</div>
-					<h4>Certifcate of Excellence</h4>
-					<p>Lorem ipsum dolor sit amet, et cum civibus referrentur, at propriae forensibus qui. Duo aliquip necessitatibus ne.</p>
-				</div>
-			</div>
-		</div>
-		<!-- End Row -->
+		
+		{% include 'choose_us.html' %}
+
 	</section>
 	<!-- End Container -->
 
