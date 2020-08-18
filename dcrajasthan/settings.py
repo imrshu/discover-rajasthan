@@ -21,6 +21,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+# Custom Apps
+INSTALLED_APPS += [
+    'packages',
+]
+
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
