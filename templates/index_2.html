@@ -1,7 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	Discover Rajsthan | Home
+{% endblock %}
+
+{% block content %}
+
+
+
+{% endblock %}
 <!DOCTYPE html>
 <!--[if IE 9]><html class="ie ie9"><![endif]-->
 <html lang="en">
-
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,65 +58,27 @@
     <![endif]-->
 
 	<div class="layer"></div>
-	<!-- Mobile menu overlay mask -->
 
 	<div id="preloader">
 		<div data-loader="circle-side"></div>
 	</div>
-	<!-- End Preload -->
 
-	<!-- Header================================================== -->
-	<div id="header_1" class="layer_slider">
-		<header>
-			<div id="top_line">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-12">
-							<a href="tel://004542344599" id="phone_top">0045 043204434</a><span id="opening">Mon - Sat 8.00/18.00</span>
-						</div>
-						<div class="col-md-6 col-sm-6 hidden-xs">
-							<ul id="top_links">
-								<li><a href="wishlist.html" id="wishlist_link">Wishlist</a>
-								</li>
-								<li><a href="#0">PURCHASE THIS TEMPLATE</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<!-- End row -->
-				</div>
-				<!-- End container-->
-			</div>
-			<!-- End top line-->
-
-			<div class="container">
-				<div class="row">
-					<div class="col-md-3 col-sm-3 col-xs-3">
-						<div id="logo_home">
-							<h1><a href="index.html" title="City tours travel template">BesTours Travel&amp;Excursion Multipurpose Template</a></h1>
-						</div>
-					</div>
-
-					{% include 'navbar.html' %}
-
-				</div>
-			</div>
-			<!-- container -->
-		</header>
-		<!-- End Header -->
+	<!-- Header -->
+	<div id="header_2" class="layer_slider">
+		{% include 'header.html' %}
 	</div>
-	<!-- End Header 1-->
+	<!-- End Header -->
 
-	
+	<!-- Slider -->
 	{% include 'slider.html' %}
+	<!-- End Slider -->
 
 	<section class="wrapper">
 		<div class="divider_border"></div>
-
 		<div class="container">
 
 			<div class="main_title">
-				<h2>Our <span>Top</span> Museum Tours</h2>
+				<h2>Our <span>Popular</span> Tours</h2>
 				<p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
 			</div>
 			
