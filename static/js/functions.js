@@ -42,22 +42,6 @@
 	/* Animation on scroll */
 	new WOW().init();
 
-	/* Booking form calculate */
-	update_amounts();
-	$('select').change(update_amounts);
-
-	function update_amounts() {
-		var sum = 0.0;
-		$('#tickets > tbody  > tr').each(function () {
-			var qty = $(this).find('option:selected').val();
-			var price = $(this).find('.price').text().replace(/[^\d.]/, '');
-			var amount = (qty * price);
-			sum += amount;
-			$(this).find('.subtotal').text('$' + amount);
-		});
-		$('#total').val('$' + sum);
-	};
-
 	/* Tooltip*/
 	$('.tooltip-1').tooltip({html: true});
 
@@ -109,46 +93,6 @@
 			}
 		}
 	});
-
-	/* Twitter feed*/
-	var $twitterFeed = $('.latest-tweets');
-	
-	$twitterFeed.each(function () {
-		$(this).tweet({
-			username: $(this).data('username'),
-			join_text: "auto",
-			avatar_size: 0,
-			count: $(this).data('number'),
-			auto_join_text_default: " we said,",
-			auto_join_text_ed: " we",
-			auto_join_text_ing: " we were",
-			auto_join_text_reply: " we replied to",
-			auto_join_text_url: "",
-			loading_text: " Loading tweets...",
-			modpath: "./twitter/"
-		});
-	});
-	$twitterFeed.find('ul').addClass('slider');
-	if ($().bxSlider) {
-		$twitterFeed.bxSlider({
-			mode: $twitterFeed.data('mode') != 'undefined' ? $twitterFeed.data('mode') : "horizontal",
-			speed: $twitterFeed.data('speed') != 'undefined' ? $twitterFeed.data('speed') : 2000,
-			controls: $twitterFeed.data('controls') != 'undefined' != 'undefined' ? $twitterFeed.data('controls') : true,
-			nextSelector: $twitterFeed.data('nextselector') != 'undefined' ? $twitterFeed.data('nextselector') : '',
-			prevSelector: $twitterFeed.data('prevselector') != 'undefined' ? $twitterFeed.data('prevselector') : '',
-			pager: $twitterFeed.data('pager') != 'undefined' ? $twitterFeed.data('pager') : true,
-			pagerSelector: $twitterFeed.data('pagerselector') != 'undefined' ? $twitterFeed.data('pagerselector') : '',
-			pagerCustom: $twitterFeed.data('pagercustom') != 'undefined' ? $twitterFeed.data('pagercustom') : '',
-			auto: $twitterFeed.data('auto') != 'undefined' ? $twitterFeed.data('auto') : true,
-			autoHover: $twitterFeed.data('autoHover') != 'undefined' ? $twitterFeed.data('autoHover') : true,
-			adaptiveHeight: $twitterFeed.data('adaptiveheight') != 'undefined' ? $twitterFeed.data('adaptiveheight') : true,
-			useCSS: $twitterFeed.data('useCSS') != 'undefined' ? $twitterFeed.data('useCSS') : false,
-			nextText: '<i class="icon-angle-right">',
-			prevText: '<i class="icon-angle-left">',
-			preloadImages: 'all',
-			responsive: true
-		});
-	};
 
 	/* Hamburger icon*/
 	var toggles = document.querySelectorAll(".cmn-toggle-switch");
