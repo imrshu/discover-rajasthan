@@ -24,6 +24,7 @@ INSTALLED_APPS = [
 # Custom Apps
 INSTALLED_APPS += [
     'packages',
+    'pages',
 ]
 
 
