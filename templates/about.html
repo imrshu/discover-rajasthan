@@ -99,49 +99,24 @@
 			<!--Team Carousel -->
 			<div class="owl-carousel team-carousel add_bottom_30">
 
-				<div class="team-item">
-					<div class="team-item-img">
-						<img src="{% static 'img/guider1.jpeg' %}" width="458" height="540" alt="Discover Rajasthan Tour Guider">
-						<div class="team-item-detail">
-							<div class="team-item-detail-inner">
-								<h4>Anshu Shokeen</h4>
-								<p>Contact Me: <a href="tel://008851548286">+91 8851548286</a></p>
-								<!-- <ul class="social">
-									<li><a href="#0"><i class="icon-facebook"></i></a>
-									</li>
-									<li><a href="#0"><i class="icon-twitter"></i></a>
-									</li>
-									<li><a href="#0"><i class="icon-google"></i></a>
-									</li>
-									<li><a href="#0"><i class="icon-linkedin"></i></a>
-									</li>
-								</ul>
-								<a href="profile.html" class="btn_1 white">View porfile</a> -->
+				{% for member in teams %}
+					<div class="team-item">
+						<div class="team-item-img">
+							<img src="{{ member.image.url }}" width="458" height="540" alt="Discover Rajasthan Tour Guider">
+							<div class="team-item-detail">
+								<div class="team-item-detail-inner">
+									<h4>{{ member.name }}</h4>
+									<p>Contact Me: <a href="tel://00{{ member.mobile }}">+91 {{ member.mobile }}</a></p>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="team-item-info">
-						<h4>Anshu Shokeen</h4>
-						<p><i>Tourist Manager</i></p>
-					</div>
-				</div>
-
-				<div class="team-item">
-					<div class="team-item-img">
-						<img src="{% static 'img/guider2.jpeg' %}" width="458" height="540" alt="Discover Rajasthan Senior tour guider">
-						<div class="team-item-detail">
-							<div class="team-item-detail-inner">
-								<h4>Dharmendar Shokeen</h4>
-								<p>Contact Me: <a href="tel://009891549078">+91 9891549078</a></p>
-							</div>
+						<div class="team-item-info">
+							<h4>{{ member.name }}</h4>
+							<p><i>{{ member.position }}</i></p>
 						</div>
 					</div>
-					<div class="team-item-info">
-						<h4>Dharmendar Shokeen</h4>
-						<p><i>Tourist Guider</i></p>
-					</div>
+				{% endfor %}
 
-				</div>
 			</div>
 			<!--End Team Carousel-->
 		</div>

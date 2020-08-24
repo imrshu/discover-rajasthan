@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import *
 
 
 def home(request):
@@ -8,7 +9,10 @@ def home(request):
 
 def aboutUs(request):
     if request.method == 'GET':
-        return render(request, 'about.html')
+        teams = Team.objects.all()
+        return render(request, 'about.html', {
+            'teams': teams
+        })
 
 
 def contactUs(request):
