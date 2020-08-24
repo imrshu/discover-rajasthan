@@ -14,3 +14,17 @@ class Team(models.Model):
     
     def __str__(self):
         return self.name
+
+
+class Banner(models.Model):
+    image = models.ImageField(upload_to='banner')
+    place_name = models.CharField(max_length=30)
+    tagline = models.CharField(max_length=50, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name_plural = 'Banner'
+    
+    def __str__(self):
+        return self.place_name

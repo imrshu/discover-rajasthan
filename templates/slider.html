@@ -1,33 +1,19 @@
 <!-- Slider -->
 <div id="full-slider-wrapper">
    <div id="layerslider" style="width:100%;height:600px;">
-      <!-- first slide -->
-      <div class="ls-slide" data-ls="slidedelay: 5000; transition2d:85;">
-         <img src="" class="ls-bg" alt="Slide background">
-         <h3 class="ls-l slide_typo" style="top: 45%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">More than 100 tours available</h3>
-         <p class="ls-l slide_typo_2" style="top:55%; left:50%;" data-ls="durationin:2000;delayin:1000;easingin:easeOutElastic;">
-            Historic Buildings - Attractions - Museums
-         </p>
-         <a class="ls-l button_intro_2 outline" style="top:65%; left:50%;white-space: nowrap;" data-ls="durationin:2000;delayin:1400;easingin:easeOutElastic;" href='grid.html'>Read more</a>
-      </div>
-      <!-- second slide -->
-      <div class="ls-slide" data-ls="slidedelay:5000; transition2d:103;">
-         <img src="https://i0.wp.com/www.trendmut.com/wp-content/uploads/2018/09/DJ-Snake-Selena-Gomez-Cardi-B-Ozuna-Taki-Taki-Lyrics.jpg?fit=1024%2C551&ssl=1" class="ls-bg" alt="Slide background">
-         <h3 class="ls-l slide_typo" style="top: 45%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">Discover Fantastic Places</h3>
-         <p class="ls-l slide_typo_2" style="top:55%; left:50%;" data-ls="durationin:2000;delayin:1000;easingin:easeOutElastic;">
-            We offer a variety of services and options
-         </p>
-         <a class="ls-l button_intro_2 outline" style="top:65%; left:50%;white-space: nowrap;" data-ls="durationin:2000;delayin:1400;easingin:easeOutElastic;" href='grid.html'>Read more</a>
-      </div>
-      <!-- third slide -->
-      <div class="ls-slide" data-ls="slidedelay: 5000; transition2d:5;">
-         <img src="" class="ls-bg" alt="Slide background">
-         <h3 class="ls-l slide_typo" style="top:45%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">Enjoy a Lovely Tour</h3>
-         <p class="ls-l slide_typo_2" style="top:55%; left:50%;" data-ls="durationin:2000;delayin:1000;easingin:easeOutElastic;">
-            Buildings - Attractions - Museums
-         </p>
-         <a class="ls-l button_intro_2" style="top:65%; left:50%;" data-ls="durationin:2000;delayin:1400;easingin:easeOutElastic;" href='grid.html'>Explore</a>
-      </div>
+      {% for place in bannner %}
+         {% comment %} {{ forloop.counter }} Slide {% endcomment %}
+         <div class="ls-slide" data-ls="slidedelay: 5000; transition2d:85;">
+            <img src="{{ place.image.url }}" width="1600" height="667" class="ls-bg" alt="{{ place.place_name }}">
+            <h3 class="ls-l slide_typo" style="top: 45%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">{{ place.place_name }}</h3>
+            {% if place.tagline %}
+               <p class="ls-l slide_typo_2" style="top:55%; left:50%;" data-ls="durationin:2000;delayin:1000;easingin:easeOutElastic;">
+                  {{ place.tagline }}
+               </p>
+            {% endif %}
+            <!-- <a class="ls-l button_intro_2 outline" style="top:65%; left:50%;white-space: nowrap;" data-ls="durationin:2000;delayin:1400;easingin:easeOutElastic;" href='grid.html'>Read more</a> -->
+         </div>
+      {% endfor %}
    </div>
 </div>
 <!-- End layerslider -->
