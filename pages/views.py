@@ -1,12 +1,15 @@
 from django.shortcuts import render
+from packages.models import Category
 from .models import *
 
 
 def home(request):
     if request.method == 'GET':
         banner = Banner.objects.all()
+        packages = Category.objects.all()
         return render(request, 'index.html', {
-            'bannner':  banner
+            'bannner':  banner,
+            'packages': packages
         })
 
 
