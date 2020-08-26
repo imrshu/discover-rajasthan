@@ -10,16 +10,29 @@
 
 	{{ block.super }}
 
+
+
+
+
 	<!-- SubHeader =============================================== -->
-	<section class="parallax_window_in" data-parallax="scroll" data-image-src="{% static 'img/contactus.jpg' %}" data-natural-width="1400" data-natural-height="470">
+	<section class="parallax_window_in" data-parallax="scroll" data-image-src="{% static 'img/sub_header_contact.jpg' %}" data-natural-width="1400" data-natural-height="470">
 		<div id="sub_content_in">
 			<div id="animate_intro">
-				<h1>Contact US</h1>
-				<p>"Discover Rajasthan highly appreciate your quries"</p>
+				<h1>get in touch!</h1>
+				<p>"Drop Your Query, Will Perceive Your Needs"</p>
 			</div>
 		</div>
 	</section>
 	<!-- End SubHeader ============================================ -->
+	{% if messages %}
+<ul class="messages">
+   {% for message in messages %}
+   <script type="">
+   	alert('{{message}}');
+   </script>
+   {% endfor %}
+</ul>
+	{% endif %}
 
 	<section class="wrapper add_bottom_30">
 		<div class="divider_border"></div>
@@ -56,7 +69,7 @@
 								<br>
 								<small>Available 24x7 for support</small>
 							</li>
-							<li><b>General queries</b>
+							<li><b>General Queries</b>
 								<br>
 								<a href="tel://009891549078">+91 9891549078</a>
 								<br><a href="mailto:dharmender_shokeen@yahoo.in">dharmender_shokeen@yahoo.in</a>
@@ -76,7 +89,8 @@
 					</p>
 					<div>
 						<div id="message-contact"></div>
-						<form method="post" action="#" id="contactform">
+						<form method="post" action="{% url 'pages:query' %}" id="contactform">
+							{% csrf_token %}
 							<div class="row">
 								<div class="col-md-6 col-sm-6">
 									<div class="form-group">
