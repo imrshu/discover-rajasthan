@@ -2,45 +2,22 @@
    <div class="row">
       <div class="col-md-8 col-md-offset-2">
          <div class="carousel_testimonials">
+            {% for client in testimonials %}
             <div>
-               <div class="box_overlay">
+               <div class="box_overlay" style="height: 131px;">
                   <div class="pic">
-                     <figure><img src="img/testimonial_1.jpg" alt="" class="img-circle">
+                     <figure>
+                        <img src="{{ client.image.url }}" alt="{{ client.name }}" class="img-circle">
                      </figure>
-                     <h4>Roberta<small>12 October 2015</small></h4>
+                     <h4 style="top: 5px;">{{ client.name }}<small>{{ client.created_at|date:"j M Y" }}</small></h4>
                   </div>
-                  <div class="comment">
-                     "Mea ad postea meliore fuisset. Timeam repudiare id eum, ex paulo dictas elaboraret sed, mel cu unum nostrud."
+                  <div class="comment" style="height: 81px;">
+                     "{{ client.review }}."
                   </div>
                </div>
                <!-- End box_overlay -->
             </div>
-            <div>
-               <div class="box_overlay">
-                  <div class="pic">
-                     <figure><img src="img/testimonial_1.jpg" alt="" class="img-circle">
-                     </figure>
-                     <h4>Roberta<small>12 October 2015</small></h4>
-                  </div>
-                  <div class="comment">
-                     "No nam indoctum accommodare, vix ei discere civibus philosophia. Vis ea dicant diceret ocurreret."
-                  </div>
-               </div>
-               <!-- End box_overlay -->
-            </div>
-            <div>
-               <div class="box_overlay">
-                  <div class="pic">
-                     <figure><img src="img/testimonial_1.jpg" alt="" class="img-circle">
-                     </figure>
-                     <h4>Roberta<small>12 October 2015</small></h4>
-                  </div>
-                  <div class="comment">
-                     "No nam indoctum accommodare, vix ei discere civibus philosophia. Vis ea dicant diceret ocurreret."
-                  </div>
-               </div>
-               <!-- End box_overlay -->
-            </div>
+            {% endfor %}
          </div>
          <!-- End carousel_testimonials -->
       </div>
