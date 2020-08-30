@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Discover Rajasthan | {{ package_name }} All Tours
+{% endblock %}
+
+{% block content %}
+
+    {{ block.super }}
+
+	<!-- SubHeader =============================================== -->
+	<section class="parallax_window_in" data-parallax="scroll" data-image-src="{% static 'img/sub_header_list_museum.jpg' %}" data-natural-width="1400" data-natural-height="470">
+		<div id="sub_content_in">
+			<div id="animate_intro">
+				<h1>{{ package_name }}</h1>
+				<p>"{{ package_desc }}"</p>
+			</div>
+		</div>
+	</section>
+	<!-- End section -->
+	<!-- End SubHeader ============================================ -->
+
+	<section class="wrapper">
+		<div class="divider_border_gray"></div>
+		<div id="filters" class="clearfix">
+			<div id="sort_filters">
+				<select name="orderby" class="selectbox">
+					<option value="popularity">Sort by Popularity</option>
+					<option value="rating">Sort by Average Rating</option>
+					<option value="date" selected='selected'>Sort by Newness</option>
+					<option value="price">Sort by Price: Low to High</option>
+					<option value="price-desc">Sort by Price: High to Low</option>
+				</select>
+			</div>
+		</div>
+		<!-- End filters -->
+
+		<div class="container">
+			<div class="row" style="display: flex; flex-wrap: wrap;">
+
+				{% for tour in tours %}
+				<div class="col-md-4 col-sm-6 wow fadeIn animated" data-wow-delay="0.2s">
+					<div class="img_wrapper">
+						<div class="ribbon">
+							<span>Popular</span>
+						</div>
+						<div class="img_container">
+							<a href="detail-page.html">
+								<img src="{{ tour.image.url }}" style="" class="img-responsive" alt="{{ tour.title }}">
+								<div class="short_info">
+									<h3>{{ tour.title }}</h3>
+									<em>{{ package_name }}</em>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!-- End img_wrapper -->
+				</div>
+				<!-- End col -->
+				{% endfor %}
+
+			</div>
+			<!-- End row -->
+		</div>
+		<!-- End container -->
+	</section>
+	<!-- End section -->
+
+{% endblock %}
+
+{% block footer %}
+
+	<div class="container margin_60"></div>
+	<!-- end container -->
+
+    {{ block.super }}
+
+{% endblock %}
+
+{% block specificscripts %}
+	<!-- SPECIFIC SCRIPTS -->
+	<script src="{% static 'js/jquery.selectbox-0.2.js' %}"></script>
+	<script>
+		$(".selectbox").selectbox();
+	</script>
+{% endblock %}

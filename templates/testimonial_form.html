@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Discover Rajasthan | Create Testimonial
+{% endblock %}
+
+{% block content %}
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <section class="wrapper">
+		<div class="divider_border"></div>
+		<div class="container">
+
+			<div class="main_title" style="margin-top: -30px;">
+				<h2>Testimonials Form</h2>
+				<p>We Appreciate Your Feedback</p>
+			</div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <form method="POST" action="{% url 'testimonials:create' %}" 
+                    enctype="multipart/form-data"
+                    id="testimonialform">
+                        {% csrf_token %}
+
+                        {{ form|crispy }}
+
+                        <input type="submit" value="Submit" class="btn_1" id="submit-contact">
+
+                    </form>
+                    <br>
+                </div>
+            </div>
+
+
+		</div>
+	</section>
+
+{% endblock %}
