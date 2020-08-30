@@ -10,10 +10,6 @@
 
 	{{ block.super }}
 
-
-
-
-
 	<!-- SubHeader =============================================== -->
 	<section class="parallax_window_in" data-parallax="scroll" data-image-src="{% static 'img/sub_header_contact.jpg' %}" data-natural-width="1400" data-natural-height="470">
 		<div id="sub_content_in">
@@ -24,15 +20,6 @@
 		</div>
 	</section>
 	<!-- End SubHeader ============================================ -->
-	{% if messages %}
-<ul class="messages">
-   {% for message in messages %}
-   <script type="">
-   	alert('{{message}}');
-   </script>
-   {% endfor %}
-</ul>
-	{% endif %}
 
 	<section class="wrapper add_bottom_30">
 		<div class="divider_border"></div>
@@ -52,7 +39,8 @@
 						<h5>Get Directions</h5>
 						<form action="http://maps.google.com/maps" method="get" target="_blank">
 							<div class="form-group">
-								<input type="text" name="saddr" placeholder="Enter your location" class="form-control styled">
+								<label for="user_location">From Location</label>
+								<input type="text" id="user_location" name="saddr" placeholder="Enter your location" class="form-control styled">
 								<input type="hidden" name="daddr" value="National Market Peeragarhi, New delhi 110087">
 							</div>
 							<input type="submit" value="Get directions" class="btn_1 add_bottom_15">
@@ -60,7 +48,7 @@
 
 						<hr class="styled">
 
-						<h4>Departmens</h4>
+						<h4>Departments</h4>
 						<ul class="contacts_info">
 							<li><b>Administration</b>
 								<br>
@@ -88,7 +76,7 @@
 						For More Details Feel Free To Reach Out To Us.
 					</p>
 					<div>
-						<div id="message-contact"></div>
+						{% include 'messages.html' %}
 						<form method="post" action="{% url 'pages:query' %}" id="contactform">
 							{% csrf_token %}
 							<div class="row">
@@ -145,11 +133,10 @@
 	</section>
 	<!-- End section -->
 
-	<div id="toTop"></div>
-	<!-- Back to top button -->
+{% endblock %}
 
-	{% include 'search.html' %}
+{% block footer %}
 
-	{% include 'footer.html' %}
+	{{ block.super }}
 
 {% endblock %}

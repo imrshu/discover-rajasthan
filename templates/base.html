@@ -40,6 +40,17 @@
 	
 	{% endblock %}
 
+	{% block footer %}
+	
+		{% include 'footer.html' %}
+
+		<div id="toTop"></div>
+		<!-- Back to top button -->
+
+		{% include 'search.html' %}
+
+	{% endblock %}
+
 	<!-- COMMON SCRIPTS -->
 	<script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
 	<script src="{% static 'js/common_scripts_min.js' %}"></script>

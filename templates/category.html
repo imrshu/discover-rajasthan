@@ -4,7 +4,7 @@
          <div class="col-md-4 col-sm-6 wow fadeIn animated" data-wow-delay="0.2s">
             <div class="img_wrapper">
                <div class="img_container">
-                  <a href="detail-page.html">
+                  <a href="{% url 'packages:category' slug=package.slug %}">
                      <img src="{{ package.image.url }}" width="800" height="533" class="img-responsive" alt="{{ package.title }}">
                      <div class="short_info">
                         <h3>{{ package.title }}</h3>

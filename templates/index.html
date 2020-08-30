@@ -76,15 +76,15 @@
 		<!-- End promo_full -->
 	</section>
 	<!-- End section -->
+	
+{% endblock %}
 
-	{% include 'footer.html' %}
+{% block footer %}
 
-	<div id="toTop"></div>
-	<!-- Back to top button -->
-
-	{% include 'search.html' %}
+	{{ block.super }}
 
 {% endblock %}
+
 
 {% block specificscripts %}
 	<!-- SPECIFIC SCRIPTS -->
