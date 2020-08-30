@@ -29,6 +29,12 @@ INSTALLED_APPS += [
     'testimonials',
 ]
 
+# Third Party Apps
+INSTALLED_APPS += [
+    'crispy_forms',
+]
+
+
 # Custom User Model
 AUTH_USER_MODEL = 'users.User'
 
@@ -119,3 +125,9 @@ EMAIL_HOST_USER = 'rishabh.verma11998@gmail.com'
 EMAIL_HOST_PASSWORD = 'backtrack123##'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
+
+# Crispy form
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+# Django image resized
+DJANGORESIZED_DEFAULT_QUALITY = 80
