@@ -1,7 +1,8 @@
-from django.urls import path
+from django.urls import re_path
+from .views import createTestimonial
 
 app_name = 'testimonials'
 
 urlpatterns = [
-    path('create', None, name='client_create')
+    re_path(r'create/$', createTestimonial, name='create'),
 ]
