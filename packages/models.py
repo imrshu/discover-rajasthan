@@ -6,7 +6,7 @@ from django_resized import ResizedImageField
 class Category(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50, unique=True, null=True, blank=True)
-    image = ResizedImageField(upload_to='category', null=True, blank=True)
+    image = ResizedImageField(size=[800, 533], upload_to='category', null=True, blank=True)
     description = models.TextField()
     display_order = models.IntegerField(default=0)
     is_active = models.BooleanField(default=True)
@@ -29,7 +29,7 @@ class Tour(models.Model):
     title = models.CharField(max_length=80)
     slug = models.SlugField(max_length=100, unique=True, null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    image = ResizedImageField(upload_to='tours', null=True, blank=True)
+    image = ResizedImageField(size=[800, 533], upload_to='tours', null=True, blank=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
