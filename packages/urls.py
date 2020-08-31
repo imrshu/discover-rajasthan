@@ -4,5 +4,6 @@ from .views import *
 app_name = "packages"
 
 urlpatterns = [
-    path('category/<slug>/', getCategory, name='category'),
+    path('category/<slug>/tours/', getCategory, name='category'),
+    path('category/<category_slug>/tours/<tour_slug>/', getTour, name='tour')
 ]
