@@ -1,8 +1,9 @@
 from django.db import models
+from django_resized import ResizedImageField
 
 
 class Team(models.Model):
-    image = models.ImageField(upload_to='team')
+    image = ResizedImageField(size=[458, 540], upload_to='team')
     name = models.CharField(max_length=40)
     mobile = models.CharField(max_length=10)
     position = models.CharField(max_length=30)
@@ -17,7 +18,7 @@ class Team(models.Model):
 
 
 class Banner(models.Model):
-    image = models.ImageField(upload_to='banner')
+    image = ResizedImageField(size=[1600, 667], upload_to='banner')
     place_name = models.CharField(max_length=30)
     tagline = models.CharField(max_length=50, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
