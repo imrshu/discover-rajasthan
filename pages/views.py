@@ -39,13 +39,15 @@ def send_query(request):
         last_name = request.POST.get('lastname')
         email = request.POST.get('email')
         phone = request.POST.get('phone')
+        code = request.POST.get('code')
         query = request.POST.get('query')
         template = render_to_string("contact_email.html", {
             "first_name":first_name,
             "last_name":last_name,
             "email":email,
             "phone":phone,
-            "query":query
+            "query":query,
+            "code":code
         })
 
         send_mail("Customer Query", None, email, [settings.EMAIL_HOST_USER], html_message=template)

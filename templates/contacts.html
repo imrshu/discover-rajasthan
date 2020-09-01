@@ -6,6 +6,22 @@
 	Discover Rajasthan | Contact Us
 {% endblock %}
 
+{% block specificcss %}
+
+	<style>
+		#phone_area {
+			margin-left: -35px;
+		}
+
+		@media screen and (max-width: 766px) {
+			#phone_area {
+				margin: 0;
+			}
+		}
+	</style>
+
+{% endblock %}
+
 {% block content %}
 
 	{{ block.super }}
@@ -103,7 +119,17 @@
 								<div class="col-md-6 col-sm-6">
 									<div class="form-group">
 										<label>Phone number:</label>
-										<input type="tel" id="phone_contact" name="phone" class="form-control styled" placeholder="9810141416" required>
+										<div class="row">
+											<div class="col-sm-3">
+												<input name="code" list="codes" class="form-control" autocomplete="off" placeholder="+91">
+												<datalist id="codes">
+													{% include 'country_codes.html' %}
+												</datalist>
+											</div>
+											<div class="col-sm-9" id="phone_area">
+												<input name="phone" type="tel" class="form-control" autocomplete="off" placeholder="(201) 555-5555">
+											</div>
+										</div>										
 									</div>
 								</div>
 							</div>
