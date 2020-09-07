@@ -40,3 +40,56 @@ class Tour(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Tour, self).save(*args, **kwargs)
+
+
+
+class TourDetail(models.Model):
+    tour = models.OneToOneField(Tour, on_delete=models.CASCADE)
+    image1 = ResizedImageField(size=[1000,450], upload_to='tour_detail')
+    image2 = ResizedImageField(size=[1000,450], upload_to='tour_detail')
+    image3 = ResizedImageField(size=[1000,450], upload_to='tour_detail', null=True, blank=True)
+    description = models.TextField()
+    inclusion = models.TextField()
+    exclusion = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.tour.title
+
+
+
+class TourItenary(models.Model):
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50)
+    description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+    def __str__(self):
+        return self.tour.title
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
