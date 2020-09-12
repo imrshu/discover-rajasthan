@@ -80,31 +80,28 @@
 
 							<hr>
 
-							<h3>Program</h3>
+							<h3>TOUR ITENARY</h3>
 							<p>
 								
 							</p>
-							<ul class="cbp_tmtimeline">
-								{% for i in tour_itenary %}
-								<li>
-									<time class="cbp_tmtime" datetime="09:30"><span>30 min.</span><span>09:30</span>
-									</time>
-									<div class="cbp_tmicon">
-										{{forloop.counter}}
+  							<div class="panel-group" id="accordion">
+  								{% for i in tour_itenary %}
+								<div class="panel panel-default">
+								  <div class="panel-heading">
+									<h4 class="panel-title">
+									  <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{forloop.counter}}"><b>Day {{forloop.counter}}:</b> {{i.title|title}}
+										  <i class="icon-angle-circled-down" style="float: right;"></i>
+									  </a>
+									</h4>
+								  </div>
+								  <div id="collapse{{forloop.counter}}" class="panel-collapse collapse">
+									<div class="panel-body">{{i.description}}
 									</div>
-									<div class="cbp_tmlabel">
-										<div class="hidden-xs">
-											<img src="img/tour_plan_1.jpg" alt="" class="img-circle thumb_visit">
-										</div>
-										<h4>{{ i.title }}</h4>
-										<p>
-											{{ i.description }}
-										</p>
-									</div>
-								</li>
+								</div>
+							</div>
 							{% endfor %}
-							</ul>
-
+						</div>
+								
 						</div>
 						<!-- End tab_1 -->
 
@@ -537,11 +534,14 @@
 {% block specificscripts %}
 
 	<!-- SPECIFIC SCRIPTS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
 	<script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
 	<script>
 		$('#date_pick').datepicker();
     </script>
 	<script src="{% static 'js/sidebar_carousel_detail_page_func.js' %}"></script>    
 	<script src="{% static 'js/infobox.js' %}"></script>
+
 
 {% endblock %}
