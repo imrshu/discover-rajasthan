@@ -1,10 +1,10 @@
-from .models import Category, Tour
+from .models import Category, Tour, TourDetail, TourItenary
 
 
 def getCategoryObj(category_slug):
     try:
         return Category.objects.get(slug=category_slug)
-    except Category.DoesNotExists:
+    except Category.DoesNotExist:
         return None
 
 
@@ -12,15 +12,19 @@ def getCategoryTours(category_slug):
     return Tour.objects.filter(category__slug=category_slug)
 
 
-def getTourTitle(tour_slug):
+def getTourBySlug(tour_slug):
     try:
         return Tour.objects.get(slug=tour_slug)
-    except Tour.DoesNotExists:
+    except Tour.DoesNotExist:
         return None
 
 
-def getCategoryTitle(category_slug):
+def getTourDetail(tour_instance):
     try:
-        return Category.objects.get(slug=category_slug).title
-    except Category.DoesNotExists:
+        return TourDetail.objects.get(tour=tour_instance)
+    except TourDetail.DoesNotExist:
         return None
+
+
+def getTourItenary(tour_instance):
+    return TourItenary.objects.filter(tour__pk=tour_instance.pk)

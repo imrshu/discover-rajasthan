@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-    Discover Rajasthan | {{ tour_title }} Tour
+    Discover Rajasthan | {{ tour.title }} Tour
 {% endblock %}
 
 {% block specificcss %}
@@ -17,12 +17,13 @@
 
     {{ block.super }}
 
+	{% if tour_detail %}
 	<!-- SubHeader =============================================== -->
-	<section class="parallax_window_in" data-parallax="scroll" data-image-src="img/sub_header_list_museum_in.jpg" data-natural-width="1400" data-natural-height="470">
+	<section class="parallax_window_in" data-parallax="scroll" data-image-src="{{ tour.image.url }}" data-natural-width="1400" data-natural-height="470">
 		<div id="sub_content_in">
 			<div id="animate_intro">
-				<h1>{{ tour_title }} Tour</h1>
-				<small style="color: whitesmoke;">Home > Packages > {{ package_title }} > {{ tour_title }}</small>
+				<h1>{{ tour.title }} Tour</h1>
+				<small style="color: whitesmoke;">Home > Packages > {{ package_title|title }} > {{ tour.title }}</small>
 			</div>
 		</div>
 	</section>
@@ -37,12 +38,26 @@
 				<div class="col-md-8">
 
 					<div class="owl-carousel add_bottom_15">
-						<div class="item"><img src="{{ tour_detail.image1.url }}" alt="">
+						<div class="item">
+							<img src="{{ tour_detail.image1.url }}" 
+							alt="{{tour.title}} first image in carousel"
+							width="1000"
+							height="450">
 						</div>
-						<div class="item"><img src="{{ tour_detail.image2.url }}" alt="">
+						<div class="item">
+							<img src="{{ tour_detail.image2.url }}" 
+							alt="{{tour.title}} second image in carousel"
+							width="1000"
+							height="450">
 						</div>
-						<div class="item"><img src="{{ tour_detail.image3.url }}" alt="">
+						{% if tour_detail.image3 %}
+						<div class="item">
+							<img src="{{ tour_detail.image3.url }}" 
+							alt="{{tour.title}} image three in carousel"
+							width="1000"
+							height="450">
 						</div>
+						{% endif %}
 					</div>
 
 					<ul class="nav nav-tabs">
@@ -89,8 +104,8 @@
 								<div class="panel panel-default">
 								  <div class="panel-heading">
 									<h4 class="panel-title">
-									  <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{forloop.counter}}"><b>Day {{forloop.counter}}:</b> {{i.title|title}}
-										  <i class="icon-angle-circled-down" style="float: right;"></i>
+									  <a style="padding: 15px 5px;" data-toggle="collapse" data-parent="#accordion" href="#collapse{{forloop.counter}}"><b>Day {{forloop.counter}}:</b> {{i.title|title}}
+										<i class="icon-angle-circled-down" style="float: right;"></i>
 									  </a>
 									</h4>
 								  </div>
@@ -522,6 +537,19 @@
 		<!-- End carousel -->
 	</div>
 	<!-- End container -->
+	{% else %}
+	<!-- SubHeader =============================================== -->
+	<section class="parallax_window_in" data-parallax="scroll" data-image-src="{{ tour_image_url }}" data-natural-width="1400" data-natural-height="470">
+		<div id="sub_content_in">
+			<div id="animate_intro">
+				<h1>No Detail Available Yet!</h1>
+				<small style="color: whitesmoke;">Sorry please come back later</small>
+			</div>
+		</div>
+	</section>
+	<!-- End section -->
+	<!-- End SubHeader ============================================ -->
+	{% endif %}
 
 {% endblock %}
 

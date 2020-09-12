@@ -19,16 +19,16 @@ def getCategory(request, **kwargs):
 
 def getTour(request, **kwargs):
     if request.method == 'GET':
-        tour = Tour.objects.get(category__slug=kwargs.get('category_slug'))
-        tour_detail = TourDetail.objects.get(tour=tour)
-        tour_itenary = TourItenary.objects.filter(tour__slug=kwargs.get('tour_slug'))
+        tour = getTourBySlug(kwargs.get('tour_slug'))
+        tour_detail = getTourDetail(tour)
+        tour_itenary = getTourItenary(tour)
 
         return render(request, 'package_detail.html', {
-            'tour_title': getTourTitle(kwargs.get('tour_slug')),
-            'package_title': getCategoryTitle(kwargs.get('category_slug')),
+            'tour': tour,
+            'tour_image_url': tour.image.url,
+            'package_title': tour.category.title,
             'tour_detail': tour_detail,
-            'tour_itenary': tour_itenary,
-
+            'tour_itenary': tour_itenary
         })
 
 
