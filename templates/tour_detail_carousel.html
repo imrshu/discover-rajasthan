@@ -1,0 +1,22 @@
+<div class="owl-carousel add_bottom_15">
+    <div class="item">
+        <img src="{{ tour_detail.image1.url }}" 
+        alt="{{tour.title}} first image in carousel"
+        width="1000"
+        height="450">
+    </div>
+    <div class="item">
+        <img src="{{ tour_detail.image2.url }}" 
+        alt="{{tour.title}} second image in carousel"
+        width="1000"
+        height="450">
+    </div>
+    {% if tour_detail.image3 %}
+    <div class="item">
+        <img src="{{ tour_detail.image3.url }}" 
+        alt="{{tour.title}} image three in carousel"
+        width="1000"
+        height="450">
+    </div>
+    {% endif %}
+</div>

@@ -1,0 +1,17 @@
+<h4>Tour Itinerary</h4>
+<div class="panel-group" id="accordion">
+    {% for i in tour_itenary %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a style="padding: 15px 5px;" data-toggle="collapse" data-parent="#accordion" href="#collapse{{forloop.counter}}"><b>Day {{forloop.counter}}:</b> {{i.title|title}}
+          <i class="icon-angle-circled-down" style="float: right;"></i>
+        </a>
+      </h4>
+    </div>
+      <div id="collapse{{forloop.counter}}" class="panel-collapse collapse">
+          <div class="panel-body">{{i.description}}</div>
+      </div>
+  </div>
+  {% endfor %}
+</div>
