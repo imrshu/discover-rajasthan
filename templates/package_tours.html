@@ -11,7 +11,7 @@
     {{ block.super }}
 
 	<!-- SubHeader =============================================== -->
-	<section class="parallax_window_in" data-parallax="scroll" data-image-src="{% static 'img/sub_header_list_museum.jpg' %}" data-natural-width="1400" data-natural-height="470">
+	<section class="parallax_window_in" data-parallax="scroll" data-image-src="{{ category_image_url }}" data-natural-width="1400" data-natural-height="470">
 		<div id="sub_content_in">
 			<div id="animate_intro">
 				<h1>{{ package_name }}</h1>

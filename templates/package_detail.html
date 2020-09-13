@@ -37,89 +37,39 @@
 			<div class="row">
 				<div class="col-md-8">
 
-					<div class="owl-carousel add_bottom_15">
-						<div class="item">
-							<img src="{{ tour_detail.image1.url }}" 
-							alt="{{tour.title}} first image in carousel"
-							width="1000"
-							height="450">
-						</div>
-						<div class="item">
-							<img src="{{ tour_detail.image2.url }}" 
-							alt="{{tour.title}} second image in carousel"
-							width="1000"
-							height="450">
-						</div>
-						{% if tour_detail.image3 %}
-						<div class="item">
-							<img src="{{ tour_detail.image3.url }}" 
-							alt="{{tour.title}} image three in carousel"
-							width="1000"
-							height="450">
-						</div>
-						{% endif %}
-					</div>
+					<!-- Tour carousel -->
+					{% include 'tour_detail_carousel.html' %}
+					<!--// End Tour carousel -->
 
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#tab_1" data-toggle="tab">Overview</a>
 						</li>
 						<li><a href="#tab_2" data-toggle="tab">Reviews</a>
 						</li>
-						<li><a href="#tab_3" data-toggle="tab">Map</a>
-						</li>
 					</ul>
 
+					<!-- Tour detail tab 1 -->
 					<div class="tab-content">
 						<div class="tab-pane fade in active" id="tab_1">
-
-							<p> 
-								{{tour_detail.description}}
-							</p>
-							<div class="row">
-								<div class="col-md-12">
-
-									<div class="feature-box">
-										<div class="feature-box-icon">
-											<i class="icon-ok-4"></i>
-										</div>
-										<div class="feature-box-info">
-											<h4>Invenire voluptatum</h4>
-											<p>
-												Lorem ipsum dolor sit amet, ei per elitr persecuti adipiscing, ne discere temporibus nam.
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- End row -->
-
+							<!-- Tour information -->
+							{% include 'tour_detail_information.html' %}
+							<!--// End tour information -->
 							<hr>
-
-							<h3>TOUR ITENARY</h3>
-							<p>
-								
-							</p>
-  							<div class="panel-group" id="accordion">
-  								{% for i in tour_itenary %}
-								<div class="panel panel-default">
-								  <div class="panel-heading">
-									<h4 class="panel-title">
-									  <a style="padding: 15px 5px;" data-toggle="collapse" data-parent="#accordion" href="#collapse{{forloop.counter}}"><b>Day {{forloop.counter}}:</b> {{i.title|title}}
-										<i class="icon-angle-circled-down" style="float: right;"></i>
-									  </a>
-									</h4>
-								  </div>
-								  <div id="collapse{{forloop.counter}}" class="panel-collapse collapse">
-									<div class="panel-body">{{i.description}}
-									</div>
-								</div>
-							</div>
-							{% endfor %}
+							<!-- Inclusions -->
+							{% include 'tour_detail_inclusions.html' %}
+							<!--// End Inclusions -->
+							<hr>
+							<!-- Exclusions -->
+							{% include 'tour_detail_exclusions.html' %}
+							<!--// End Exclusions -->
+							<hr>
+							<!-- Tour Itinerary -->
+							{% include 'tour_detail_itinerary.html' %}
+							<!--// End Tour Itinerary -->
 						</div>
-								
-						</div>
-						<!-- End tab_1 -->
+						<!--// End tab 1 -->
 
+						<!-- Tour detail tab 2 -->
 						<div class="tab-pane fade" id="tab_2">
 
 							<div id="summary_review">
@@ -248,33 +198,7 @@
 							</div>
 
 						</div>
-						<!-- End tab_2 -->
-
-						<div class="tab-pane fade" id="tab_3">
-							<div id="map"></div>
-							<!-- end map-->
-
-							<div class="box_map">
-								<i class="icon_set_1_icon-25"></i>
-								<h4>By Train/tube</h4>
-								<p>Per cu esse assentior delicatissimi, qui adipiscing dissentiunt mediocritatem in, dicat voluptaria no eam. No est alia eloquentiam. Has rebum vulputate adversarium no. Pro cibo delenit scripserit id.</p>
-							</div>
-
-
-							<div class="box_map">
-								<i class="icon_set_1_icon-26"></i>
-								<h4>By bus</h4>
-								<p>Per cu esse assentior delicatissimi, qui adipiscing dissentiunt mediocritatem in, dicat voluptaria no eam. No est alia eloquentiam. Has rebum vulputate adversarium no. Pro cibo delenit scripserit id.</p>
-							</div>
-
-							<div class="box_map">
-								<i class="icon_set_1_icon-21"></i>
-								<h4>By Taxi/cabs</h4>
-								<p>Per cu esse assentior delicatissimi, qui adipiscing dissentiunt mediocritatem in, dicat voluptaria no eam. No est alia eloquentiam. Has rebum vulputate adversarium no. Pro cibo delenit scripserit id.</p>
-							</div>
-
-						</div>
-						<!-- End tab_3 -->
+						<!--// End tab 2 -->
 					</div>
 					<!-- End tabs -->
 				</div>
@@ -283,7 +207,7 @@
 				<aside class="col-md-4">
 					<div class="box_style_1">
 						<div class="price">
-							<strong>$39</strong><small>per person</small>
+							<strong><i class="icon-rupee"></i>{{tour_detail.price}}</strong>
 						</div>
 						<ul class="list_ok">
 							<li>Sea te propriae lobortis</li>

@@ -1249,7 +1249,7 @@ a#phone_2 {
 .feature-box .feature-box-info h4 {
 	padding-top: 15px;
 	font-weight: 400;
-	font-size: 16px;
+	font-size: 15px;
 }
 
 .feature-box .feature-box-icon {
@@ -1259,7 +1259,7 @@ a#phone_2 {
 	display: inline-block;
 	float: left;
 	height: 45px;
-	font-size: 20px;
+	font-size: 15px;
 	line-height: 40px;
 	margin-right: 5px;
 	text-align: center;
@@ -3335,7 +3335,6 @@ ul.list_ok li:before {
 
 .panel-default > .panel-heading {
 	background-color: #fff;
-	padding: 20px;
 	border-bottom: 1px solid #ddd;
 }
 
