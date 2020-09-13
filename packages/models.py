@@ -47,6 +47,7 @@ class TourDetail(models.Model):
     image1 = ResizedImageField(size=[1000,450], upload_to='tour_detail')
     image2 = ResizedImageField(size=[1000,450], upload_to='tour_detail')
     image3 = ResizedImageField(size=[1000,450], upload_to='tour_detail', null=True, blank=True)
+    price = models.PositiveIntegerField(default=0)
     description = models.TextField()
     inclusion = models.TextField()
     exclusion = models.TextField()
@@ -59,27 +60,4 @@ class TourItenary(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    updated_at = models.DateTimeField(auto_now=True)

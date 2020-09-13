@@ -13,7 +13,8 @@ def getCategory(request, **kwargs):
             'tours_count': tours.count(),
             'package_name': category.title,
             'package_desc': category.description,
-            'category_slug': category_slug
+            'category_slug': category_slug,
+            'category_image_url': category.image.url
         })
 
 
