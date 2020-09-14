@@ -24,12 +24,15 @@ def getTour(request, **kwargs):
         tour_detail = getTourDetail(tour)
         tour_itenary = getTourItenary(tour)
 
+
         return render(request, 'package_detail.html', {
             'tour': tour,
             'tour_image_url': tour.image.url,
             'package_title': tour.category.title,
             'tour_detail': tour_detail,
-            'tour_itenary': tour_itenary
+            'tour_itenary': tour_itenary,
+            'inclusions' : tour_detail.inclusion.split('\n'),
+            'exclusions' : tour_detail.exclusion.split('\n'),
         })
 
 

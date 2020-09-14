@@ -61,3 +61,46 @@ class TourItenary(models.Model):
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+
+
+class Review(models.Model):
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=100)
+    rating = models.PositiveIntegerField(default=1)
+    review = models.TextField()
+
+
+    def __str__(self):
+        return self.tour.title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        

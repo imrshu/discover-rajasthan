@@ -3,21 +3,15 @@
         <h4>Exclusions</h4>
     </div>
     <div class="col-md-5">
+        {% for exclusion in exclusions %}
         <div class="feature-box">
             <div class="feature-box-icon" style="color: #9c2917;">
                 <i class="icon-cancel-5"></i>
             </div>
             <div class="feature-box-info">
-                <h4>Invenire voluptatum</h4>
+                <h4>{{exclusion}}</h4>
             </div>
         </div>
-        <div class="feature-box">
-            <div class="feature-box-icon" style="color: #9c2917;">
-                <i class="icon-cancel-5"></i>
-            </div>
-            <div class="feature-box-info">
-                <h4>Invenire voluptatum</h4>
-            </div>
-        </div>									
+        {% endfor %}								
     </div>
 </div>

@@ -3,21 +3,15 @@
         <h4>Inclusions</h4>
     </div>
     <div class="col-md-5">
+        {% for inclusion in inclusions %}
         <div class="feature-box">
             <div class="feature-box-icon">
                 <i class="icon-ok-4"></i>
             </div>
             <div class="feature-box-info">
-                <h4>Invenire voluptatum</h4>
+                <h4>{{inclusion}}</h4>
             </div>
         </div>
-        <div class="feature-box">
-            <div class="feature-box-icon">
-                <i class="icon-ok-4"></i>
-            </div>
-            <div class="feature-box-info">
-                <h4>Invenire voluptatum</h4>
-            </div>
-        </div>									
+        {% endfor %}									
     </div>
 </div>

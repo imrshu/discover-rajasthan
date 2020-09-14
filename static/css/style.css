@@ -1253,8 +1253,6 @@ a#phone_2 {
 }
 
 .feature-box .feature-box-icon {
-	border: 3px double #ededed;
-	border-radius: 45px;
 	color: #589442;
 	display: inline-block;
 	float: left;
