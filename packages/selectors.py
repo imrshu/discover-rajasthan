@@ -1,4 +1,4 @@
-from .models import Category, Tour, TourDetail, TourItenary
+from .models import *
 
 
 def getCategoryObj(category_slug):
@@ -28,3 +28,36 @@ def getTourDetail(tour_instance):
 
 def getTourItenary(tour_instance):
     return TourItenary.objects.filter(tour__pk=tour_instance.pk)
+
+
+def review(**kwargs):
+    Review.objects.create(**kwargs)
+
+
+
+    # tour = getTourBySlug(kwargs.get('tour_slug'))
+    # Review.objects.create(
+    #     tour = tour,
+    #     name = kwargs.get('name'),
+    #     email = kwargs.get('email'),
+    #     rating = kwargs.get('rating'),
+    #     review = kwargs.get('review')
+    #     )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

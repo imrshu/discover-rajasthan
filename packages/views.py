@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .selectors import *
 from .models import *
 
@@ -23,6 +23,7 @@ def getTour(request, **kwargs):
         tour = getTourBySlug(kwargs.get('tour_slug'))
         tour_detail = getTourDetail(tour)
         tour_itenary = getTourItenary(tour)
+        reviews = Review.objects.all().order_by('-rating')
 
 
         return render(request, 'package_detail.html', {
@@ -33,7 +34,25 @@ def getTour(request, **kwargs):
             'tour_itenary': tour_itenary,
             'inclusions' : tour_detail.inclusion.split('\n'),
             'exclusions' : tour_detail.exclusion.split('\n'),
+            'reviews' : reviews
         })
+
+def writeReview(request, **kwargs):
+    if request.method == 'POST':
+        name = request.POST.get('fullname')
+        email = request.POST.get('email')
+        rating = request.POST.get('rating')
+        review = request.POST.get('review')
+        Review.objects.create(
+            tour = Tour.objects.get(slug=kwargs.get('tour_slug')),
+            name = name,
+            email = email,
+            rating = rating,
+            review = review 
+            )
+        return redirect("packages:tour", 
+            category_slug=kwargs.get('category_slug'),
+            tour_slug=kwargs.get('tour_slug') )
 
 
 

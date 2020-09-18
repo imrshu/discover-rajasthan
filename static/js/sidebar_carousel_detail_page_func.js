@@ -7,6 +7,8 @@ $('.owl-carousel').owlCarousel({
 	animateOut: 'fadeOut',
 	animateIn: 'fadeIn',
 	responsiveClass: true,
+	loop: true,
+	autoplay: true,
 	margin: 0,
 	items: 1,
 	responsiveClass: true,
