@@ -24,6 +24,7 @@ def getTour(request, **kwargs):
         tour_detail = getTourDetail(tour)
         tour_itenary = getTourItenary(tour)
         reviews = Review.objects.all().order_by('-rating')
+        highlights = tour_detail.highlights.split('\n') 
 
 
         return render(request, 'package_detail.html', {
@@ -34,7 +35,9 @@ def getTour(request, **kwargs):
             'tour_itenary': tour_itenary,
             'inclusions' : tour_detail.inclusion.split('\n'),
             'exclusions' : tour_detail.exclusion.split('\n'),
-            'reviews' : reviews
+            'reviews' : reviews,
+            'highlights' : highlights,
+
         })
 
 def writeReview(request, **kwargs):

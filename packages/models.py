@@ -51,8 +51,11 @@ class TourDetail(models.Model):
     description = models.TextField()
     inclusion = models.TextField()
     exclusion = models.TextField()
+    highlights = models.TextField()
+    special_highlight = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
 
 
 class TourItenary(models.Model):
@@ -74,9 +77,7 @@ class Review(models.Model):
 
     def __str__(self):
         return self.tour.title
-
-
-
+        
 
 
 
