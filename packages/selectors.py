@@ -1,3 +1,4 @@
+from django.db.models import Q
 from .models import *
 
 
@@ -30,34 +31,17 @@ def getTourItenary(tour_instance):
     return TourItenary.objects.filter(tour__pk=tour_instance.pk)
 
 
-def review(**kwargs):
+def getTourAllReviews(tour_slug):
+    return Review.objects.filter(tour__slug=tour_slug).order_by('-rating')
+
+
+def getTourAllHighlights(tour_detail_obj):
+    return tour_detail_obj.highlights.split('\n')
+
+
+def saveReview(*args, **kwargs):
     Review.objects.create(**kwargs)
 
 
-
-    # tour = getTourBySlug(kwargs.get('tour_slug'))
-    # Review.objects.create(
-    #     tour = tour,
-    #     name = kwargs.get('name'),
-    #     email = kwargs.get('email'),
-    #     rating = kwargs.get('rating'),
-    #     review = kwargs.get('review')
-    #     )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def getRelatedTours(category_slug, tour_slug):
+    return Tour.objects.filter(~Q(slug=tour_slug), category__slug=category_slug).order_by('-created_at')[:4]

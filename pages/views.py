@@ -54,11 +54,6 @@ def send_query(request):
         return redirect("pages:contact")
 
 
-
-
-
-
-
-
-
-
+def faq(request):
+    if request.method == 'GET':
+        return render(request, 'faq.html')

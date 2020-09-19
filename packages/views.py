@@ -24,9 +24,9 @@ def getTour(request, **kwargs):
         tour = getTourBySlug(kwargs.get('tour_slug'))
         tour_detail = getTourDetail(tour)
         tour_itenary = getTourItenary(tour)
-        reviews = Review.objects.all().order_by('-rating')
-        highlights = tour_detail.highlights.split('\n') 
-
+        reviews = getTourAllReviews(kwargs.get('tour_slug'))
+        highlights = getTourAllHighlights(tour_detail)
+        related_tours = getRelatedTours(kwargs.get('category_slug'), kwargs.get('tour_slug'))
 
         return render(request, 'package_detail.html', {
             'tour': tour,
@@ -38,8 +38,9 @@ def getTour(request, **kwargs):
             'exclusions' : tour_detail.exclusion.split('\n'),
             'reviews' : reviews,
             'highlights' : highlights,
-
+            'related_tours': related_tours
         })
+
 
 def writeReview(request, **kwargs):
     if request.method == 'POST':
@@ -48,16 +49,20 @@ def writeReview(request, **kwargs):
         rating = request.POST.get('rating')
         review = request.POST.get('review')
 
-        Review.objects.create(
-            tour = Tour.objects.get(slug=kwargs.get('tour_slug')),
-            name = name,
-            email = email,
-            rating = rating,
-            review = review
-            )
-        return redirect("packages:tour", 
+        review_data = {
+            'tour': getTourBySlug(kwargs.get('tour_slug')),
+            'name': name,
+            'email': email,
+            'rating': rating,
+            'review': review
+        }
+
+        saveReview(**review_data)
+
+        return redirect("packages:tour",
             category_slug=kwargs.get('category_slug'),
-            tour_slug=kwargs.get('tour_slug') )
+            tour_slug=kwargs.get('tour_slug')
+        )
 
 
 def bookNow(request, **kwargs):
@@ -81,14 +86,3 @@ def bookNow(request, **kwargs):
         return redirect("packages:tour",
             category_slug=kwargs.get('category_slug'),
             tour_slug=kwargs.get('tour_slug'))
-
-
-
-
-
-
-
-
-
-
-

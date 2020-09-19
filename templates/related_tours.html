@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="carousel add_bottom_30">
+    {% for tour in related_tours %}
+    <div>
+        <div class="img_wrapper">
+            <div class="price_grid">
+                <sup><i class="icon-rupee"></i></sup>{{ tour.tourdetail.price }}
+            </div>
+            <!-- End tools i -->
+            <div class="img_container">
+                <a href="{% url 'packages:tour' category_slug=tour.category.slug  tour_slug=tour.slug %}">
+                    <img src="{{ tour.image.url }}" height="533" class="img-responsive" alt="{{ tour.title }}">
+                    <div class="short_info">
+                        <h3>{{ tour.title }}</h3>
+                        <p>
+                            {{ tour.tourdetail.description }}
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- End img_wrapper -->
+    </div>
+    {% endfor %}
+</div>
+<!-- End carousel -->
