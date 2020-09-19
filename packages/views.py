@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .selectors import *
 from .models import *
+from pages.helpers import *
 
 
 def getCategory(request, **kwargs):
@@ -46,16 +47,47 @@ def writeReview(request, **kwargs):
         email = request.POST.get('email')
         rating = request.POST.get('rating')
         review = request.POST.get('review')
+
         Review.objects.create(
             tour = Tour.objects.get(slug=kwargs.get('tour_slug')),
             name = name,
             email = email,
             rating = rating,
-            review = review 
+            review = review
             )
         return redirect("packages:tour", 
             category_slug=kwargs.get('category_slug'),
             tour_slug=kwargs.get('tour_slug') )
+
+
+def bookNow(request, **kwargs):
+    if request.method == 'POST':
+        date = request.POST.get('travel_date')
+        name = request.POST.get('fullname')
+        email = request.POST.get('email')
+        mobile = request.POST.get('mobile')
+        people = request.POST.get('people')
+
+        BookNow.objects.create(
+            tour = getTourBySlug(kwargs.get('tour_slug')),
+            travel_date = date,
+            name = name,
+            email = email,
+            mobile = mobile,
+            no_of_people = people
+            )
+        sendMail(email, None , "Booking Enquiry")
+
+        return redirect("packages:tour",
+            category_slug=kwargs.get('category_slug'),
+            tour_slug=kwargs.get('tour_slug'))
+
+
+
+
+
+
+
 
 
 

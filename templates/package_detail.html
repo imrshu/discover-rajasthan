@@ -92,8 +92,8 @@
 					<div class="box_style_2">
 						<h3>Book This Tour<span>24x7 service - Confirmed Immediately</span></h3>
 						<div>
-							<form method="post" action="assets/check_avail.php" id="check_avail" autocomplete="off">
-								<input type="hidden" name="tour_name" value="{{ package_title }} {{ tour.title }}" />
+							<form method="post" action="{% url 'packages:bookNow' tour.category.slug tour.slug %}" id="check_avail" autocomplete="off">
+								{% csrf_token %}
 								<div class="form-group">
 									<label for="travel_date">Travel Date</label>
 									<input type="date" class="form-control" id="travel_date" name="travel_date">

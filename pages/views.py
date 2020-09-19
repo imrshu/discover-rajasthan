@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
 from packages.models import Category
 from .models import *
-from django.core.mail import send_mail
-from django.conf import settings
 from django.template.loader import render_to_string
 from django.contrib import messages
 from testimonials.models import Testimonials
+from .helpers import *
 
 
 def home(request):
@@ -50,7 +49,7 @@ def send_query(request):
             "code":code
         })
 
-        send_mail("Customer Query", None, email, [settings.EMAIL_HOST_USER], html_message=template)
+        sendMail(email, template, "Customer Query")
         messages.success(request, 'We will revert back you soon')
         return redirect("pages:contact")
 

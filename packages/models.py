@@ -77,6 +77,21 @@ class Review(models.Model):
 
     def __str__(self):
         return self.tour.title
+
+
+class BookNow(models.Model):
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+    travel_date = models.DateField()
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=100)
+    mobile = models.PositiveIntegerField()
+    no_of_people = models.PositiveIntegerField(default=1)
+
+
+
+    def __str__(self):
+        return self.tour.title + self.email
+
         
 
 
