@@ -7,5 +7,6 @@ urlpatterns = [
     path('', home, name='home'),
     path('about_us', aboutUs, name="about"),
     path('contact_us', contactUs, name="contact"),
-    path('query', send_query, name="query")
+    path('query', send_query, name="query"),
+    path('faq', faq, name="faq")
 ]

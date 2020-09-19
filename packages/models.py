@@ -57,14 +57,12 @@ class TourDetail(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
-
 class TourItenary(models.Model):
     tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
 
 
 class Review(models.Model):
@@ -77,31 +75,3 @@ class Review(models.Model):
 
     def __str__(self):
         return self.tour.title
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
