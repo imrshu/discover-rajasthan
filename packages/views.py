@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
+from django.template.loader import render_to_string
 from .selectors import *
 from .models import *
+from .services import *
 from pages.helpers import *
 
 
@@ -73,16 +75,30 @@ def bookNow(request, **kwargs):
         mobile = request.POST.get('mobile')
         people = request.POST.get('people')
 
-        BookNow.objects.create(
-            tour = getTourBySlug(kwargs.get('tour_slug')),
-            travel_date = date,
-            name = name,
-            email = email,
-            mobile = mobile,
-            no_of_people = people
-            )
-        sendMail(email, None , "Booking Enquiry")
+        booknow_form_data = {
+            'tour': getTourBySlug(kwargs.get('tour_slug')),
+            'travel_date': date,
+            'name': name,
+            'email': email,
+            'mobile': mobile,
+            'no_of_people': people             
+        }
+
+        saveBooking(**booknow_form_data)
+
+        booknow_template = render_to_string('tour_booking_email.html', {
+            'tour_name': booknow_form_data['tour'].title,
+            'package_name': booknow_form_data['tour'].category.title,
+            'name': name,
+            'travel_date': date,
+            'no_of_people': people,
+            'mobile': mobile,
+            'email': email
+        }) 
+
+        sendMail(email, booknow_template, "Booking Enquiry")
 
         return redirect("packages:tour",
             category_slug=kwargs.get('category_slug'),
-            tour_slug=kwargs.get('tour_slug'))
+            tour_slug=kwargs.get('tour_slug')
+        )

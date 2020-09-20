@@ -39,9 +39,5 @@ def getTourAllHighlights(tour_detail_obj):
     return tour_detail_obj.highlights.split('\n')
 
 
-def saveReview(*args, **kwargs):
-    Review.objects.create(**kwargs)
-
-
 def getRelatedTours(category_slug, tour_slug):
     return Tour.objects.filter(~Q(slug=tour_slug), category__slug=category_slug).order_by('-created_at')[:4]
