@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from packages.models import Category
+from packages.models import *
 from .models import *
 from django.template.loader import render_to_string
 from django.contrib import messages
@@ -12,11 +12,24 @@ def home(request):
         banner = Banner.objects.all()
         packages = Category.objects.all()
         testimonials = Testimonials.objects.all()
-        return render(request, 'index.html', {
+        return render(request, 'index.html', 
+        {
             'bannner':  banner,
             'packages': packages,
             'testimonials': testimonials
         })
+
+
+
+def tours(request):
+    if request.method == 'GET':
+        tours = Tour.objects.all()
+        return render(request, 'grid.html', {
+            'tours' : tours
+            })
+
+
+
 
 
 def aboutUs(request):
