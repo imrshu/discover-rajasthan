@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
 
 	DISCOVER RAJASTHAN | ALL TOURS
@@ -92,7 +94,7 @@
 {% block specificscripts %}
 
 	<!-- SPECIFIC SCRIPTS -->
-	<script src="js/jquery.selectbox-0.2.js"></script>
+	<script src="{% static 'js/jquery.selectbox-0.2.js' %}"></script>
 	<script>
 		$(".selectbox").selectbox();
 	</script>

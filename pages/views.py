@@ -5,6 +5,7 @@ from django.template.loader import render_to_string
 from django.contrib import messages
 from testimonials.models import Testimonials
 from .helpers import *
+from .selectors import *
 
 
 def home(request):
@@ -20,16 +21,12 @@ def home(request):
         })
 
 
-
 def tours(request):
     if request.method == 'GET':
         tours = Tour.objects.all()
-        return render(request, 'grid.html', {
+        return render(request, 'all_tours.html', {
             'tours' : tours
             })
-
-
-
 
 
 def aboutUs(request):
@@ -69,4 +66,7 @@ def send_query(request):
 
 def faq(request):
     if request.method == 'GET':
-        return render(request, 'faq.html')
+        faqs = getAllFaqs()
+        return render(request, 'faq.html', {
+            'faqs': faqs
+        })
