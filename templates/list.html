@@ -14,8 +14,8 @@
 	<section class="parallax_window_in" data-parallax="scroll" data-image-src="img/sub_header_list_museum.jpg" data-natural-width="1400" data-natural-height="470">
 		<div id="sub_content_in">
 			<div id="animate_intro">
-				<h1>Museum Tours</h1>
-				<p>"Usu habeo equidem sanctus no ex melius labitur conceptam eos"</p>
+				<h1>Available Tours</h1>
+				<p>search results for "{{ q }}"</p>
 			</div>
 		</div>
 	</section>
@@ -25,209 +25,43 @@
 
 	<section class="wrapper">
 		<div class="divider_border_gray"></div>
-		<div id="filters" class="clearfix">
-			<div id="sort_filters">
-				<select name="orderby" class="selectbox">
-					<option value="popularity">Sort by Popularity</option>
-					<option value="rating">Sort by Average Rating</option>
-					<option value="date" selected='selected'>Sort by Newness</option>
-					<option value="price">Sort by Price: Low to High</option>
-					<option value="price-desc">Sort by Price: High to Low</option>
-				</select>
-			</div>
-		</div>
-		<!-- End filters -->
-
 		<div class="container">
 
-			<div class="row strip_list wow fadeIn animated" data-wow-delay="0.2s">
-				<div class="col-md-5">
-					<div class="img_wrapper">
-						<div class="ribbon">
-							<span>Popular</span>
-						</div>
-						<div class="price_grid">
-							<sup>$</sup>23
-						</div>
-						<div class="img_container">
-							<a href="detail-page.html">
-								<img src="img/tour_list_1.jpg" width="800" height="533" class="img-responsive" alt="">
-								<div class="short_info">
-									<em>Duration 45 mins</em>
-									<div class="score_wp">Superb
-										<div class="score">7.5</div>
+			{% if tours %}
+				{% for tour in tours %}
+				<div class="row strip_list wow fadeIn animated" data-wow-delay="0.2s">
+					<div class="col-md-5">
+						<div class="img_wrapper">
+							<div class="ribbon">
+								<span>Popular</span>
+							</div>
+							<div class="price_grid">
+								<sup><i class="icon-rupee"></i></sup>{{ tour.tourdetail.price }}
+							</div>
+							<div class="img_container">
+								<a href="{% url 'packages:tour' tour.category.slug tour.slug %}">
+									<img src="{{ tour.image.url }}" width="800" height="533" class="img-responsive" alt="">
+									<div class="short_info">
+										<em>{{ tour.title }}</em>
 									</div>
-								</div>
-							</a>
+								</a>
+							</div>
 						</div>
+						<!-- End img_wrapper -->
 					</div>
-					<!-- End img_wrapper -->
-				</div>
-				<div class="col-md-7">
-					<h3>Discover Louvre<span>Quo scaevola referrentur civibus</span></h3>
-					<p>Lorem ipsum dolor sit amet, et cum civibus referrentur, at propriae <strong>forensibus qui</strong>. Duo aliquip necessitatibus ne. Eam sapientem assentior honestatis et. Ad mel veri soleat intellegat. Quo <strong>scaevola referrentur</strong> et, ei dicunt audire deserunt has. Soluta sanctus constituto has ad.</p>
-					<p>Per cu esse assentior delicatissimi, qui adipiscing dissentiunt mediocritatem in, dicat voluptaria no eam propriae forensibus qui. </p>
-					<p><a href="detail-page.html" class="btn_1">Read more</a>
-					</p>
-				</div>
-			</div>
-			<!-- End strip list -->
-
-			<div class="row strip_list wow fadeIn animated" data-wow-delay="0.2s">
-				<div class="col-md-5">
-					<div class="img_wrapper">
-						<div class="ribbon">
-							<span>Popular</span>
-						</div>
-						<div class="price_grid">
-							<sup>$</sup>23
-						</div>
-						<div class="img_container">
-							<a href="detail-page.html">
-								<img src="img/tour_list_2.jpg" width="800" height="533" class="img-responsive" alt="">
-								<div class="short_info">
-									<em>Duration 45 mins</em>
-									<div class="score_wp">Superb
-										<div class="score">7.5</div>
-									</div>
-								</div>
-							</a>
-						</div>
+					<div class="col-md-7">
+						<h3>{{ tour.title }}</h3>
+						<p>{{ tour.tourdetail.description }}</p>
+						<p><a href="{% url 'packages:tour' tour.category.slug tour.slug %}" class="btn_1">Read more</a>
+						</p>
 					</div>
-					<!-- End img_wrapper -->
 				</div>
-				<div class="col-md-7">
-					<h3>Discover Louvre<span>Quo scaevola referrentur civibus</span></h3>
-					<p>Lorem ipsum dolor sit amet, et cum civibus referrentur, at propriae <strong>forensibus qui</strong>. Duo aliquip necessitatibus ne. Eam sapientem assentior honestatis et. Ad mel veri soleat intellegat. Quo <strong>scaevola referrentur</strong> et, ei dicunt audire deserunt has. Soluta sanctus constituto has ad.</p>
-					<p>Per cu esse assentior delicatissimi, qui adipiscing dissentiunt mediocritatem in, dicat voluptaria no eam propriae forensibus qui. </p>
-					<p><a href="detail-page.html" class="btn_1">Read more</a>
-					</p>
-				</div>
-			</div>
-			<!-- End strip list -->
-
-			<div class="row strip_list wow fadeIn animated" data-wow-delay="0.2s">
-				<div class="col-md-5">
-					<div class="img_wrapper">
-						<div class="ribbon">
-							<span>Popular</span>
-						</div>
-						<div class="price_grid">
-							<sup>$</sup>23
-						</div>
-						<div class="img_container">
-							<a href="detail-page.html">
-								<img src="img/tour_list_3.jpg" width="800" height="533" class="img-responsive" alt="">
-								<div class="short_info">
-									<em>Duration 45 mins</em>
-									<div class="score_wp">Superb
-										<div class="score">7.5</div>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<!-- End img_wrapper -->
-				</div>
-				<div class="col-md-7">
-					<h3>Discover Louvre<span>Quo scaevola referrentur civibus</span></h3>
-					<p>Lorem ipsum dolor sit amet, et cum civibus referrentur, at propriae <strong>forensibus qui</strong>. Duo aliquip necessitatibus ne. Eam sapientem assentior honestatis et. Ad mel veri soleat intellegat. Quo <strong>scaevola referrentur</strong> et, ei dicunt audire deserunt has. Soluta sanctus constituto has ad.</p>
-					<p>Per cu esse assentior delicatissimi, qui adipiscing dissentiunt mediocritatem in, dicat voluptaria no eam propriae forensibus qui. </p>
-					<p><a href="detail-page.html" class="btn_1">Read more</a>
-					</p>
-				</div>
-			</div>
-			<!-- End strip list -->
-
-			<div class="row strip_list wow fadeIn animated" data-wow-delay="0.2s">
-				<div class="col-md-5">
-					<div class="img_wrapper">
-						<div class="ribbon">
-							<span>Popular</span>
-						</div>
-						<div class="price_grid">
-							<sup>$</sup>23
-						</div>
-						<div class="img_container">
-							<a href="detail-page.html">
-								<img src="img/tour_list_4.jpg" width="800" height="533" class="img-responsive" alt="">
-								<div class="short_info">
-									<em>Duration 45 mins</em>
-									<div class="score_wp">Superb
-										<div class="score">7.5</div>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<!-- End img_wrapper -->
-				</div>
-				<div class="col-md-7">
-					<h3>Discover Louvre<span>Quo scaevola referrentur civibus</span></h3>
-					<p>Lorem ipsum dolor sit amet, et cum civibus referrentur, at propriae <strong>forensibus qui</strong>. Duo aliquip necessitatibus ne. Eam sapientem assentior honestatis et. Ad mel veri soleat intellegat. Quo <strong>scaevola referrentur</strong> et, ei dicunt audire deserunt has. Soluta sanctus constituto has ad.</p>
-					<p>Per cu esse assentior delicatissimi, qui adipiscing dissentiunt mediocritatem in, dicat voluptaria no eam propriae forensibus qui. </p>
-					<p><a href="detail-page.html" class="btn_1">Read more</a>
-					</p>
-				</div>
-			</div>
-			<!-- End strip list -->
-
-			<div class="row strip_list wow fadeIn animated" data-wow-delay="0.2s">
-				<div class="col-md-5">
-					<div class="img_wrapper">
-						<div class="ribbon">
-							<span>Popular</span>
-						</div>
-						<div class="price_grid">
-							<sup>$</sup>23
-						</div>
-						<div class="img_container">
-							<a href="detail-page.html">
-								<img src="img/tour_list_5.jpg" width="800" height="533" class="img-responsive" alt="">
-								<div class="short_info">
-									<em>Duration 45 mins</em>
-									<div class="score_wp">Superb
-										<div class="score">7.5</div>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<!-- End img_wrapper -->
-				</div>
-				<div class="col-md-7">
-					<h3>Discover Louvre<span>Quo scaevola referrentur civibus</span></h3>
-					<p>Lorem ipsum dolor sit amet, et cum civibus referrentur, at propriae <strong>forensibus qui</strong>. Duo aliquip necessitatibus ne. Eam sapientem assentior honestatis et. Ad mel veri soleat intellegat. Quo <strong>scaevola referrentur</strong> et, ei dicunt audire deserunt has. Soluta sanctus constituto has ad.</p>
-					<p>Per cu esse assentior delicatissimi, qui adipiscing dissentiunt mediocritatem in, dicat voluptaria no eam propriae forensibus qui. </p>
-					<p><a href="detail-page.html" class="btn_1">Read more</a>
-					</p>
-				</div>
-			</div>
-			<!-- End strip list -->
-
-
-			<nav class="pagination-wrapper">
-				<ul class="pagination">
-					<li><a href="#">1</a>
-					</li>
-					<li><a href="#">2</a>
-					</li>
-					<li><a href="#">3</a>
-					</li>
-					<li><a href="#">4</a>
-					</li>
-					<li><a href="#">5</a>
-					</li>
-					<li>
-						<a href="#" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-						</a>
-					</li>
-				</ul>
-			</nav>
-			<!-- End pagination -->
-
-			<!-- End row -->
+				<!-- End strip list -->
+				{% endfor %}
+				<!-- End row -->
+			{% else %}
+				<div class="alert alert-danger">No Tours Available Yet!</div>
+			{% endif %}
 		</div>
 		<!-- End container -->
 		</section>

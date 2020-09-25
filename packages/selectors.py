@@ -41,3 +41,7 @@ def getTourAllHighlights(tour_detail_obj):
 
 def getRelatedTours(category_slug, tour_slug):
     return Tour.objects.filter(~Q(slug=tour_slug), category__slug=category_slug).order_by('-created_at')[:4]
+
+
+def search_tour(query):
+    return Tour.objects.filter(Q(title__search=query) | Q(slug__icontains=query) | Q(category__slug__search=query))

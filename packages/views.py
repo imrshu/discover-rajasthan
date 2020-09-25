@@ -102,3 +102,14 @@ def bookNow(request, **kwargs):
             category_slug=kwargs.get('category_slug'),
             tour_slug=kwargs.get('tour_slug')
         )
+
+
+def searchTour(request):
+    if request.method == 'GET':
+        query = request.GET.get('q')
+        tours = search_tour(query)
+        return render(request, 'list.html', {
+            'tours': tours,
+            'q': query
+        })
+
