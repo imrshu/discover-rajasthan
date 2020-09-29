@@ -81,7 +81,7 @@ def bookNow(request, **kwargs):
             'name': name,
             'email': email,
             'mobile': mobile,
-            'no_of_people': people             
+            'no_of_people': people
         }
 
         saveBooking(**booknow_form_data)

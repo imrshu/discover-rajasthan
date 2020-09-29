@@ -82,9 +82,11 @@ class BookNow(models.Model):
     travel_date = models.DateField()
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=100)
-    mobile = models.PositiveIntegerField()
+    mobile = models.CharField(max_length=15)
     no_of_people = models.PositiveIntegerField(default=1)
 
+    class Meta:
+        verbose_name_plural = 'Customer Booking'
 
     def __str__(self):
-        return self.tour.title + self.email
+        return self.tour.title + ' ' + self.email

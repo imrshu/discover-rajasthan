@@ -1,4 +1,4 @@
-from .models import BookNow
+from .models import *
 
 
 def saveReview(*args, **kwargs):
