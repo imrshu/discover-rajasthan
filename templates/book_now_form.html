@@ -13,10 +13,26 @@
             <label for="email_booking">Email</label>
             <input type="email" class="form-control" id="email_booking" name="email" placeholder="Enter your Email">
         </div>
-        <div class="form-group">
-            <label for="telephone_booking">Mobile</label>
-            <input type="tel" class="form-control" id="telephone_booking" name="mobile" placeholder="Enter your mobile number">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="telephone_booking">Mobile</label>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <input name="code" list="codes" class="form-control" autocomplete="off" placeholder="+91">
+                            <datalist id="codes">
+                            {% include 'country_codes.html' %}
+                            </datalist>
+                        </div>
+                        <div class="col-sm-9" style="margin-left: -32px;">
+                            <input type="tel" class="form-control" id="telephone_booking" name="mobile" placeholder="Enter your mobile number">
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
+        
         <div class="form-group">
             <label for="people_booking">Number of People</label>
             <input type="tel" class="form-control" id="people_booking" name="people" placeholder="Enter the number of people">

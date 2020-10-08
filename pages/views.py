@@ -59,9 +59,17 @@ def send_query(request):
             "code":code
         })
 
+        template1 = render_to_string("contact_inquiry.html", {
+            "first_name":first_name,
+            "last_name":last_name
+        })
+
         sendMail(email, template, "Customer Query")
+        clientMail(email, template1, "Respond from Discover Rajasthan")
         messages.success(request, 'We will revert back you soon')
         return redirect("pages:contact")
+
+
 
 
 def faq(request):
@@ -70,3 +78,29 @@ def faq(request):
         return render(request, 'faq.html', {
             'faqs': faqs
         })
+
+
+def gallery(request):
+    if request.method == 'GET':
+        gallery = Gallery.objects.all()
+        return render(request, 'gallery.html', {
+            'gallery' : gallery
+            })
+
+
+
+
+def team_profile(request):
+    if request.method == 'GET':
+        return render(request, 'profile.html')
+
+
+
+
+
+
+
+
+
+
+

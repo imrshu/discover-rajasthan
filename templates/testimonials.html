@@ -3,6 +3,7 @@
       <div class="col-md-8 col-md-offset-2">
          <div class="carousel_testimonials">
             {% for client in testimonials %}
+            {% if client.approved == True %}
             <div>
                <div class="box_overlay" style="height: 131px;">
                   <div class="pic">
@@ -17,6 +18,7 @@
                </div>
                <!-- End box_overlay -->
             </div>
+            {% endif %}
             {% endfor %}
          </div>
          <!-- End carousel_testimonials -->

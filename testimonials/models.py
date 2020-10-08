@@ -5,6 +5,7 @@ class Testimonials(models.Model):
     name = models.CharField(max_length=30)
     review = models.TextField()
     image = models.ImageField(upload_to='testimonials')
+    approved = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
