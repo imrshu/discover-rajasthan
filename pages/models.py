@@ -50,11 +50,25 @@ class Gallery(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-
     class Meta:
         verbose_name_plural = 'Gallery'
 
-
-
     def __str__(self):
         return self.image.path
+
+
+class TeamProfile(models.Model):
+    title = models.CharField(max_length=20)
+    bio = models.TextField()
+    bio_pic = models.ImageField(upload_to='team_profile')
+    facebook_link = models.CharField(max_length=255)
+    instagram_link = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name_plural = 'Team Profile'
+    
+    def __str__(self):
+        return self.title
+    

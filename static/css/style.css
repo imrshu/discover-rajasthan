@@ -518,13 +518,14 @@ ul#tools_top li a.search-overlay-menu-btn:hover {
 }
 
 #logo_home h1 a {
-	width: 145px;
-	height: 34px;
 	display: block;
 	background-image: url(../img/logo.png);
 	background-repeat: no-repeat;
 	background-position: left top;
-	background-size: 145px 34px;
+	background-size: 85px 68px;
+	margin-top: -10px;
+	padding-top: 8px;
+	padding-bottom: 25px;
 	text-indent: -9999px;
 }
 

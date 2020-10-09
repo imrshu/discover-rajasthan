@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
 
 	DISCOVER RAJASTHAN | ALL TOURS
@@ -11,7 +13,7 @@
 	{{block.super}}
 
 	<!-- SubHeader =============================================== -->
-	<section class="parallax_window_in" data-parallax="scroll" data-image-src="img/sub_header_list_museum.jpg" data-natural-width="1400" data-natural-height="470">
+	<section class="parallax_window_in" data-parallax="scroll" data-image-src="{% static 'img/searched_tour_banner.jpg' %}" data-natural-width="1400" data-natural-height="470">
 		<div id="sub_content_in">
 			<div id="animate_intro">
 				<h1>Available Tours</h1>

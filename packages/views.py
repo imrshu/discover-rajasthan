@@ -108,7 +108,7 @@ def searchTour(request):
     if request.method == 'GET':
         query = request.GET.get('q')
         tours = search_tour(query)
-        return render(request, 'list.html', {
+        return render(request, 'searched_tours.html', {
             'tours': tours,
             'q': query
         })
