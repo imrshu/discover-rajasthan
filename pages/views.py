@@ -92,7 +92,10 @@ def gallery(request):
 
 def team_profile(request):
     if request.method == 'GET':
-        return render(request, 'profile.html')
+        profiles = TeamProfile.objects.all()
+        return render(request, 'profile.html',{
+            'profiles' : profiles
+            })
 
 
 

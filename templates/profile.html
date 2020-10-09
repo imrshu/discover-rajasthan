@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load review_star %}
+
 {% load static %}
 
 {% block title %}
@@ -16,9 +18,7 @@
 	<section class="parallax_window_in" data-parallax="scroll" data-image-src="{% static 'img/team_profile_banner.jpg' %}" data-natural-width="1400" data-natural-height="470">
 		<div id="sub_content_in">
 			<div id="animate_intro">
-				<p class="text-center"><img src="{% static 'img/guider1.jpeg' %}" alt="Anshu Shokeen Tour Advisor and Administrator" class="img-circle profile">
-				</p>
-				<h1>Anshu Shokeen</h1>
+				<h1>Team Members</h1>
 				<p>"The Tour Advisor"</p>
 			</div>
 		</div>
@@ -36,31 +36,33 @@
 			</div>
 
 			<div id="bg_profile">
+				{% for profile in profiles %}
 				<div class="row">
 					<div class="col-sm-8">
 						<div class="indent_title_in">
 							<i class="icon_document_alt"></i>
-							<h3>Profile</h3>
+							<h3>{{profile.title}}</h3>
 						</div>
 						<div class="wrapper_indent">
-							<p>Lorem ipsum dolor sit amet, dicta oportere ad est, ea eos partem neglegentur theophrastus. Esse voluptatum duo ne, expetenda corrumpit no per, at mei nobis lucilius. No eos semper aperiri neglegentur, vis noluisse quaestio no. Vix an nostro inimicus, qui ut animal fabellas reprehendunt. In quando repudiare intellegebat sed, nam suas dicta melius ea.</p>
-							<p>Mei ut decore accusam consequat, alii dignissim no usu. Phaedrum intellegat sit ut, no pri mutat eirmod. In eum iriure perpetua adolescens, pri dicunt prodesset et. Vis dicta postulant ad.</p>
+							<p>{{profile.bio|review_text}}</p>
+
 						</div>
 						<!-- end wrapper_indent -->
 					</div>
 					<!--end col -->
 					<div class="col-sm-4">
-						<p class="text-center"><img src="{% static 'img/guider1.jpeg' %}" style="width: 185px; height: 185px;" alt="" class="img-circle profile_2">
+						<p class="text-center"><img src="{{profile.bio_pic.url}}" style="width: 185px; height: 185px;" alt="{{profile.bio}}" class="img-circle profile_2">
 						</p>
 						<ul class="social_profile">
-							<li><a href="#"><i class="icon-facebook"></i></a>
+							<li><a href="{{profile.facebook_link}}"><i class="icon-facebook"></i></a>
 							</li>
-							<li><a href="#"><i class="icon-instagram"></i></a>
+							<li><a href="{{profile.instagram_link}}"><i class="icon-instagram"></i></a>
 							</li>
 						</ul>
 					</div>
 				</div>
 				<!-- End row -->
+				{% endfor %}
 			</div>
 			<!-- End bg_profile -->
 		</div>
