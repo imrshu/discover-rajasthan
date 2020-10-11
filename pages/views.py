@@ -26,7 +26,7 @@ def tours(request):
         tours = Tour.objects.all()
         return render(request, 'all_tours.html', {
             'tours' : tours
-            })
+        })
 
 
 def aboutUs(request):
@@ -50,6 +50,7 @@ def send_query(request):
         phone = request.POST.get('phone')
         code = request.POST.get('code')
         query = request.POST.get('query')
+
         template = render_to_string("contact_email.html", {
             "first_name":first_name,
             "last_name":last_name,
@@ -66,10 +67,9 @@ def send_query(request):
 
         sendMail(email, template, "Customer Query")
         clientMail(email, template1, "Respond from Discover Rajasthan")
+
         messages.success(request, 'We will revert back you soon')
         return redirect("pages:contact")
-
-
 
 
 def faq(request):
@@ -82,28 +82,15 @@ def faq(request):
 
 def gallery(request):
     if request.method == 'GET':
-        gallery = Gallery.objects.all()
+        gallery = getAllGalleryObjs()
         return render(request, 'gallery.html', {
-            'gallery' : gallery
-            })
-
-
+            'gallery': gallery
+        })
 
 
 def team_profile(request):
     if request.method == 'GET':
-        profiles = TeamProfile.objects.all()
-        return render(request, 'profile.html',{
-            'profiles' : profiles
-            })
-
-
-
-
-
-
-
-
-
-
-
+        profiles = getAllTeamProfileObjs()
+        return render(request, 'profile.html', {
+            'profiles': profiles
+        })

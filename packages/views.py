@@ -75,8 +75,10 @@ def bookNow(request, **kwargs):
         mobile = request.POST.get('mobile')
         people = request.POST.get('people')
 
+        tour = getTourBySlug(kwargs.get('tour_slug'))
+
         booknow_form_data = {
-            'tour': getTourBySlug(kwargs.get('tour_slug')),
+            'tour': tour,
             'travel_date': date,
             'name': name,
             'email': email,
@@ -94,20 +96,17 @@ def bookNow(request, **kwargs):
             'no_of_people': people,
             'mobile': mobile,
             'email': email
-        }) 
-
-
+        })
 
         confirmation_template = render_to_string('booking_confirmation.html', {
             'name' : name,
             'tour' : booknow_form_data['tour'].title,
             'duration' : date,
             'persons' : people,
-            'cost' : getTourBySlug(kwargs.get('tour_slug')).tourdetail.price,
-            'inclusions' : getTourBySlug(kwargs.get('tour_slug')).tourdetail.inclusion.split('\n'),
-            'exclusions' : getTourBySlug(kwargs.get('tour_slug')).tourdetail.exclusion.split('\n'),
-            })
-
+            'cost' : tour.tourdetail.price,
+            'inclusions' : tour.tourdetail.inclusion.split('\n'),
+            'exclusions' : tour.tourdetail.exclusion.split('\n'),
+        })
 
         sendMail(email, booknow_template, "Booking Enquiry")
         clientMail(email, confirmation_template, "Discover Rajasthan Confirmation")
