@@ -4,6 +4,7 @@ from .selectors import *
 from .models import *
 from .services import *
 from pages.helpers import *
+from django.db.models import Q
 
 
 def getCategory(request, **kwargs):
@@ -132,12 +133,21 @@ def searchTour(request):
 def filter_tours(request):
     if request.method == 'GET': 
         price = request.GET.get('price')
-        price_range = price.split(',')
+        price_range = None
+        if price == "":
+            price_range = None
+        else:
+            price_range = [int(price) for price in price.split(',')]
         location = request.GET.get('location')
         theme = request.GET.get('theme')
-        tours = Tour.objects.filter(price__range=price_range, location__iexact=location, category__title__iexact=theme)
+        categories = Category.objects.all()
+        if price == "":
+            tours = Tour.objects.filter(Q(location__iexact=location) | Q(category__title__iexact=theme))
+        else :
+            tours = Tour.objects.filter(Q(price__range=price_range) | Q(location__iexact=location) | Q(category__title__iexact=theme))
         return render(request, 'all_tours.html', {
-            'tours' : tours
+            'tours' : tours,
+            'categories' : categories
             })
 
 

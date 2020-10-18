@@ -33,6 +33,7 @@
 				<div class="col-md-2 col">
 					<div id="filters" class="clearfix">
 						<select name="price" class="form-control">
+							<option value=""> Select Price </option>
 							<option value="5000,10000">5000 - 10000</option>
 							<option value="11000,30000">11000 - 30000</option>
 							<option value="31000,50000">31000 - 50000</option>
@@ -47,7 +48,8 @@
 				</div>
 				<div class="col-md-2 col">
 					<div id="filters" class="clearfix">
-						<select name="theme" class="form-control">
+						<select name="theme" class="form-control" style="width: 140px;">
+							<option value=""> Select Theme </option>
 							{% for category in categories %}
 							<option value="{{category.title}}">{{category.title}}</option>
 							{% endfor %}
