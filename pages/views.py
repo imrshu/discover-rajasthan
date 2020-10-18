@@ -8,6 +8,7 @@ from .helpers import *
 from .selectors import *
 
 
+
 def home(request):
     if request.method == 'GET':
         banner = Banner.objects.all()
@@ -24,8 +25,10 @@ def home(request):
 def tours(request):
     if request.method == 'GET':
         tours = Tour.objects.all()
+        categories = Category.objects.all()
         return render(request, 'all_tours.html', {
-            'tours' : tours
+            'tours' : tours,
+            'categories' : categories
         })
 
 

@@ -31,6 +31,8 @@ class Tour(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     image = ResizedImageField(size=[800, 533], upload_to='tours', null=True, blank=True)
     is_active = models.BooleanField(default=True)
+    location = models.CharField(max_length=100, null=True, blank=True)
+    price = models.PositiveIntegerField(default=0, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

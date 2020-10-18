@@ -126,3 +126,19 @@ def searchTour(request):
             'q': query
         })
 
+
+
+
+def filter_tours(request):
+    if request.method == 'GET': 
+        price = request.GET.get('price')
+        price_range = price.split(',')
+        location = request.GET.get('location')
+        theme = request.GET.get('theme')
+        tours = Tour.objects.filter(price__range=price_range, location__iexact=location, category__title__iexact=theme)
+        return render(request, 'all_tours.html', {
+            'tours' : tours
+            })
+
+
+

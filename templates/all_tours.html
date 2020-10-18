@@ -28,11 +28,16 @@
 	<section class="wrapper">
 		<div class="divider_border_gray"></div>
 
-		<form>
+		<form action="{% url 'packages:filter_tours' %}" method="GET">
 			<div class="row">
 				<div class="col-md-2 col">
 					<div id="filters" class="clearfix">
-						<input type="tel" class="form-control" placeholder="Price">
+						<select name="price" class="form-control">
+							<option value="5000,10000">5000 - 10000</option>
+							<option value="11000,30000">11000 - 30000</option>
+							<option value="31000,50000">31000 - 50000</option>
+							<option value="51000,2147483647">51000 - Unlimited</option>
+						</select>
 					</div>
 				</div>
 				<div class="col-md-2 col">
@@ -42,7 +47,12 @@
 				</div>
 				<div class="col-md-2 col">
 					<div id="filters" class="clearfix">
-						<input type="text" class="form-control" placeholder="Theme">
+						<select name="theme" class="form-control">
+							{% for category in categories %}
+							<option value="{{category.title}}">{{category.title}}</option>
+							{% endfor %}
+
+						</select>
 					</div>
 				</div>
 				<div class="col-md-2 col">
