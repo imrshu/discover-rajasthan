@@ -4,7 +4,7 @@
 
 {% block title %}
 
-	DISCOVER RAJASTHAN | ALL TOURS
+	Epic Rajasthan Tours | All Tours | Filtered Tours
 
 {% endblock %}
 
@@ -43,7 +43,7 @@
 				</div>
 				<div class="col-md-2 col">
 					<div id="filters" class="clearfix">
-						<input type="text" class="form-control" placeholder="Location">
+						<input type="text" class="form-control" placeholder="Location" name="location">
 					</div>
 				</div>
 				<div class="col-md-2 col">
@@ -67,34 +67,40 @@
 
 		<div class="container">
 			<div class="row">
-				{% for tour in tours %}
+				{% if tours_count == 0 %}
 
-				<div class="col-md-4 col-sm-6 wow fadeIn animated" data-wow-delay="0.2s">
-					<div class="img_wrapper">
-						<div class="ribbon">
-							<span>Popular</span>
-						</div>
-						<div class="price_grid">
-							<sup><i class="icon-rupee"></i></sup>
-							{{tour.tourdetail.price}}
-						</div>
-						<div class="img_container">
-							<a href="{% url 'packages:tour' tour.category.slug tour.slug %}">
-								<img src="{{ tour.image.url }}" style="width: 800px; height: 240px;" class="img-responsive" alt="{{tour.title}}">
-								<div class="short_info">
-									<h3>{{tour.title}}</h3>
-									<p>
-										{{tour.description}}
-									</p>
-								</div>
-							</a>
-						</div>
-					</div>
-					<!-- End img_wrapper -->
-				</div>
-				<!-- End col -->
-				{% endfor %}
+					<div class="alert alert-danger">No {{ package_name }} Tours Available Yet!</div>
 				
+				{% else %}
+
+					{% for tour in tours %}
+
+					<div class="col-md-4 col-sm-6 wow fadeIn animated" data-wow-delay="0.2s">
+						<div class="img_wrapper">
+							<div class="ribbon">
+								<span>Popular</span>
+							</div>
+							<div class="price_grid">
+								<sup><i class="icon-rupee"></i></sup>
+								{{tour.tourdetail.price}}
+							</div>
+							<div class="img_container">
+								<a href="{% url 'packages:tour' tour.category.slug tour.slug %}">
+									<img src="{{ tour.image.url }}" style="width: 800px; height: 240px;" class="img-responsive" alt="{{tour.title}}">
+									<div class="short_info">
+										<h3>{{tour.title}}</h3>
+										<p>
+											{{tour.description}}
+										</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<!-- End img_wrapper -->
+					</div>
+					<!-- End col -->
+					{% endfor %}
+				{% endif %}
 			</div>
 			<!-- End row -->
 		</div>

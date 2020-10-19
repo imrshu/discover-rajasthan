@@ -132,23 +132,44 @@ def searchTour(request):
 
 def filter_tours(request):
     if request.method == 'GET': 
-        price = request.GET.get('price')
+        # get categories
+        categories = Category.objects.all()
+        # set price range
         price_range = None
-        if price == "":
-            price_range = None
-        else:
-            price_range = [int(price) for price in price.split(',')]
+        # set the filtered tours
+        tours = None
+        # get form values
+        price = request.GET.get('price')
         location = request.GET.get('location')
         theme = request.GET.get('theme')
-        categories = Category.objects.all()
-        if price == "":
-            tours = Tour.objects.filter(Q(location__iexact=location) | Q(category__title__iexact=theme))
-        else :
-            tours = Tour.objects.filter(Q(price__range=price_range) | Q(location__iexact=location) | Q(category__title__iexact=theme))
+
+        if price == "" or price is None:
+            price_range = None
+            if location is None or location == '':
+                tours = Tour.objects.filter(Q(category__title__iexact=theme))
+            else:
+                if theme is None or theme == '':
+                    tours = Tour.objects.filter(Q(location__search=location))
+                else:
+                    tours = Tour.objects.filter(Q(location__search=location) & Q(category__title__iexact=theme))
+        else:
+            price_range = [int(price) for price in price.split(',')]
+            if location is None or location == '':
+                if theme is None or theme == '':
+                    tours = Tour.objects.filter(Q(price__range=price_range))
+                else:
+                    tours = Tour.objects.filter(Q(price__range=price_range) & Q(category__title__iexact=theme))
+            else:
+                if theme is None or theme == '':
+                    tours = Tour.objects.filter(Q(price__range=price_range) & Q(location__search=location))
+                else:
+                    tours = Tour.objects.filter(Q(price__range=price_range) & Q(location__search=location) & Q(category__title__iexact=theme))
+
         return render(request, 'all_tours.html', {
             'tours' : tours,
+            'tours_count': tours.count(),
             'categories' : categories
-            })
+        })
 
 
 

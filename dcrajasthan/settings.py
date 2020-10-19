@@ -1,13 +1,14 @@
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '0jvmzn4%eh+i!tl2wlu_z*^40r106jb_qpg^61kl^80qf%e_)s'
+SECRET_KEY = config('SECRET_KEY', cast=str)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -76,8 +77,12 @@ WSGI_APPLICATION = 'dcrajasthan.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('DB_NAME', cast=str),
+        'USER': config('DB_USER', cast=str),
+        'PASSWORD': config('DB_PASS', cast=str),
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -115,7 +120,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+
 
 # MEDIA FILES CONFIGURATION
 MEDIA_URL = '/media/'
@@ -123,8 +130,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # EMAIL CONFIGURATION
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'rishabh.verma11998@gmail.com'
-EMAIL_HOST_PASSWORD = 'backtrack123##'
+EMAIL_HOST_USER = config('EMAIL_USER', cast=str)
+EMAIL_HOST_PASSWORD = config('EMAIL_PASS', cast=str)
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 
