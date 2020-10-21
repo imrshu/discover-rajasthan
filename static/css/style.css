@@ -517,6 +517,13 @@ ul#tools_top li a.search-overlay-menu-btn:hover {
 	padding: 0;
 }
 
+@media screen and (max-width: 991px) {
+	#logo_home h1 {
+		margin: 18px 0 0 0;
+		padding: 0;
+	}	
+}
+
 #logo_home h1 a {
 	display: block;
 	background-image: url(../img/logo.png);

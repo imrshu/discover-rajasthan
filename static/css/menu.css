@@ -183,7 +183,7 @@ a.show-submenu-mega + .menu-wrapper.show_mega,
   display:block;
   overflow: visible;
   position:absolute; 
-  top:18px;
+  top:30px;
   right:15px;
   margin: 0;
   padding: 0;

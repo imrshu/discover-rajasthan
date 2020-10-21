@@ -56,6 +56,7 @@
 	ul#tools_top {
 		margin-right: 45px;
 		margin-top: 13px;
+		padding-top: 5px;
 	}
 	#sub_content_in {
 		padding: 65px 20px 0 20px;
@@ -232,7 +233,7 @@
 /* Mobile Landscape */
 @media (max-width: 767px) {
 	header {
-		padding: 0 0 12px 0;
+		padding: 0 0 0 0;
 	}
 	#logo img {
 		height: 22px;
