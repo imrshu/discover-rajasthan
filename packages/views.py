@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
+from django.db.models import Q
 from .selectors import *
 from .models import *
 from .services import *
-from pages.helpers import *
-from django.db.models import Q
+from pages.tasks import *
 
 
 def getCategory(request, **kwargs):
@@ -109,8 +109,8 @@ def bookNow(request, **kwargs):
             'exclusions' : tour.tourdetail.exclusion.split('\n'),
         })
 
-        sendMail(email, booknow_template, "Booking Enquiry")
-        clientMail(email, confirmation_template, "Discover Rajasthan Confirmation")
+        sendMail.delay(email, booknow_template, "Booking Enquiry")
+        clientMail.delay(email, confirmation_template, "EpicRajasthanTours Confirmation")
 
         return redirect("packages:tour",
             category_slug=kwargs.get('category_slug'),
@@ -126,8 +126,6 @@ def searchTour(request):
             'tours': tours,
             'q': query
         })
-
-
 
 
 def filter_tours(request):

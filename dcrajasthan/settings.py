@@ -10,7 +10,7 @@ SECRET_KEY = config('SECRET_KEY', cast=str)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Built In Applications
 INSTALLED_APPS = [
@@ -140,3 +140,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # Django image resized
 DJANGORESIZED_DEFAULT_QUALITY = 80
+
+# Celery configuration
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
