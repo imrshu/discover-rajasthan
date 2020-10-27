@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
-from packages.models import *
-from .models import *
 from django.template.loader import render_to_string
 from django.contrib import messages
-from testimonials.models import Testimonials
-from .helpers import *
+from django.views.decorators.cache import cache_page
+from .models import *
+from .tasks import *
 from .selectors import *
+from packages.models import *
+from testimonials.models import Testimonials
 
 
-
+@cache_page(300)
 def home(request):
     if request.method == 'GET':
         banner = Banner.objects.all()
@@ -68,8 +69,8 @@ def send_query(request):
             "last_name":last_name
         })
 
-        sendMail(email, template, "Customer Query")
-        clientMail(email, template1, "Respond from Discover Rajasthan")
+        sendMail.delay(email, template, "Customer Query")
+        clientMail.delay(email, template1, "Respond from Discover Rajasthan")
 
         messages.success(request, 'We will revert back you soon')
         return redirect("pages:contact")

@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.db.models import Q
+from django.views.decorators.cache import cache_page
 from .selectors import *
 from .models import *
 from .services import *
 from pages.tasks import *
 
 
+@cache_page(300)
 def getCategory(request, **kwargs):
     if request.method == 'GET':
         category_slug = kwargs.get('slug')
@@ -22,6 +24,7 @@ def getCategory(request, **kwargs):
         })
 
 
+@cache_page(300)
 def getTour(request, **kwargs):
     if request.method == 'GET':
         tour = getTourBySlug(kwargs.get('tour_slug'))
@@ -118,6 +121,7 @@ def bookNow(request, **kwargs):
         )
 
 
+@cache_page(300)
 def searchTour(request):
     if request.method == 'GET':
         query = request.GET.get('q')
@@ -128,6 +132,7 @@ def searchTour(request):
         })
 
 
+@cache_page(60*15)
 def filter_tours(request):
     if request.method == 'GET': 
         # get categories
