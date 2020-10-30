@@ -7,8 +7,8 @@
 	=============================================== */
 	$(window).on("load", function () { 
 		$('[data-loader="circle-side"]').fadeOut(); 
-		$('#preloader').delay(350).fadeOut('slow'); 
-		$('body').delay(350).css({'overflow': 'visible'});
+		$('#preloader').delay(150).fadeOut('slow'); 
+		$('body').delay(150).css({'overflow': 'visible'});
 		$('#animate_intro').addClass('animated fadeInUp');
 	})
 
@@ -52,12 +52,8 @@
 			.find("i.indicator")
 			.toggleClass('icon_plus_alt2 icon_minus_alt2');
 	}
-	$('.panel-group').on('hidden.bs.collapse shown.bs.collapse', toggleChevron);
 
-	/* Video modal*/
-	$('.video').magnificPopup({
-		type: 'iframe'
-	});
+	$('.panel-group').on('hidden.bs.collapse shown.bs.collapse', toggleChevron);
 
 	/* Parallax modal*/
 	$('.parallax_window_in').parallax({});
@@ -75,9 +71,8 @@
 
 	/* Carousel*/
 	$('.carousel_testimonials').owlCarousel({
-		items: 1,
 		loop: true,
-		autoplay: false,
+		autoplay: true,
 		animateIn: 'flipInX',
 		margin: 30,
 		stagePadding: 30,
