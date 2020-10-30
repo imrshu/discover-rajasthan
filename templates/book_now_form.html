@@ -18,13 +18,13 @@
                 <div class="form-group">
                     <label for="telephone_booking">Mobile</label>
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-4" id="book_now_form_mobile_codes">
                             <input name="code" list="codes" class="form-control" autocomplete="off" placeholder="+91">
                             <datalist id="codes">
                             {% include 'country_codes.html' %}
                             </datalist>
                         </div>
-                        <div class="col-sm-9" style="margin-left: -32px;">
+                        <div class="col-sm-9" id="book_now_form_mobile_field">
                             <input type="tel" class="form-control" id="telephone_booking" name="mobile" placeholder="Enter your mobile number">
                         </div>
                     </div>
