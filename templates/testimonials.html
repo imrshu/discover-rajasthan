@@ -5,14 +5,14 @@
             {% for client in testimonials %}
             {% if client.approved == True %}
             <div>
-               <div class="box_overlay" style="height: 131px;">
+               <div class="box_overlay">
                   <div class="pic">
                      <figure>
                         <img src="{{ client.image.url }}" alt="{{ client.name }}" class="img-circle">
                      </figure>
-                     <h4 style="top: 5px;">{{ client.name }}<small>{{ client.created_at|date:"j M Y" }}</small></h4>
+                     <h4>{{ client.name }}<small>{{ client.created_at|date:"j M Y" }}</small></h4>
                   </div>
-                  <div class="comment" style="height: 81px;">
+                  <div class="comment">
                      "{{ client.review }}."
                   </div>
                </div>
