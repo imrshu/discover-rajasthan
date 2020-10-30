@@ -1,3 +1,33 @@
 @charset "UTF-8";
 /* Your custom styles */
 
+@media screen and (min-width: 700px) {
+    #book_now_form_mobile_field {
+        margin-left: -32px;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 992px) {
+    #book_now_form_mobile_codes {
+        width: 100%;
+    }
+    #book_now_form_mobile_field {
+        margin: 0;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    #tour_price {
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .box_style_1 {
+        padding: 20px 2px 20px 8px;
+    }
+    #tour_price {
+        font-size: 8px;
+    }
+}
