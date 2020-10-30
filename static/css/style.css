@@ -1732,7 +1732,7 @@ a.list_bt {
 
 .pic figure img {
 	width: 80px;
-	height: auto;
+	height: 80px;
 	border: 5px solid rgba(0, 0, 0, 0.2);
 }
 
