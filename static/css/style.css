@@ -1037,6 +1037,32 @@ video {
 	font-weight: 400;
 }
 
+.tour_detail_price_box {
+	background-color: whitesmoke;
+	color: #3379b7;
+	margin-bottom: 30px;
+	border: 1px solid #e6d9d9;
+	padding: 10px 10px;
+}
+
+.tour_detail_highlight_icons {
+	padding: 5px 12px;
+}
+
+.tour_detail_highlight_icon_unbold {
+	font-size: 25px;
+	border: 1px solid #3379b7;
+	border-radius: 50%;
+	opacity: 0.5;
+}
+
+.tour_detail_highlight_icon_bold {
+	font-size: 25px;
+	border: 1px solid #3379b7;
+	border-radius: 50%;
+	opacity: 1;
+}
+
 .box_style_1 {
 	background-color: #589442;
 	padding: 20px 30px 20px 30px;
