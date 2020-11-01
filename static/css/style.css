@@ -1039,7 +1039,7 @@ video {
 
 .tour_detail_price_box {
 	background-color: whitesmoke;
-	color: #3379b7;
+	color: black;
 	margin-bottom: 30px;
 	border: 1px solid #e6d9d9;
 	padding: 10px 10px;
@@ -1049,16 +1049,20 @@ video {
 	padding: 5px 12px;
 }
 
+.tour_detail_highlight_icons i {
+	margin-right: 5px;
+}
+
 .tour_detail_highlight_icon_unbold {
 	font-size: 25px;
-	border: 1px solid #3379b7;
+	border: 1px solid black;
 	border-radius: 50%;
 	opacity: 0.5;
 }
 
 .tour_detail_highlight_icon_bold {
 	font-size: 25px;
-	border: 1px solid #3379b7;
+	border: 1px solid black;
 	border-radius: 50%;
 	opacity: 1;
 }
