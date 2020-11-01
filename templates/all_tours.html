@@ -69,7 +69,7 @@
 			<div class="row">
 				{% if tours_count == 0 %}
 
-					<div class="alert alert-danger">No {{ package_name }} Tours Available Yet!</div>
+					<div class="alert alert-danger">No Tours Available Yet!</div>
 				
 				{% else %}
 
@@ -80,10 +80,12 @@
 							<div class="ribbon">
 								<span>Popular</span>
 							</div>
+							{% if tour.price_is_active == True %}
 							<div class="price_grid">
 								<sup><i class="icon-rupee"></i></sup>
-								{{tour.tourdetail.price}}
+								{{tour.price}}
 							</div>
+							{% endif %}
 							<div class="img_container">
 								<a href="{% url 'packages:tour' tour.category.slug tour.slug %}">
 									<img src="{{ tour.image.url }}" style="width: 800px; height: 240px;" class="img-responsive" alt="{{tour.title}}">

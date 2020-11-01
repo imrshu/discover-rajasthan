@@ -29,6 +29,7 @@ def tours(request):
         categories = Category.objects.all()
         return render(request, 'all_tours.html', {
             'tours' : tours,
+            'tours_count': tours.count(),
             'categories' : categories
         })
 
