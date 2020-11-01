@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-md-7">
+        <h4>Highlights</h4>
+    </div>
+    <div class="col-md-5">
+        {% for highlight in highlights %}
+        <div class="feature-box">
+            <div class="feature-box-icon" style="color: #428894;">
+                <i class="icon-eye"></i>
+            </div>
+            <div class="feature-box-info">
+                <h4>{{highlight|title}}</h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
