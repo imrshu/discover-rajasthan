@@ -29,7 +29,7 @@
 		<div class="divider_border_gray"></div>
 
 		<form action="{% url 'packages:filter_tours' %}" method="GET">
-			<div class="row">
+			<div class="row" style="margin-right: 0; margin-left: 0;">
 				<div class="col-md-2 col">
 					<div id="filters" class="clearfix">
 						<select name="price" class="form-control">
@@ -48,7 +48,7 @@
 				</div>
 				<div class="col-md-2 col">
 					<div id="filters" class="clearfix">
-						<select name="theme" class="form-control" style="width: 140px;">
+						<select name="theme" class="form-control">
 							<option value=""> Select Theme </option>
 							{% for category in categories %}
 							<option value="{{category.title}}">{{category.title}}</option>
