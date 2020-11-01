@@ -1711,7 +1711,7 @@ a.list_bt {
 
 .pic h4 {
 	position: absolute;
-	left: 95px;
+	left: 110px;
 	top: 18px;
 	color: #fff;
 	font-size: 14px;
@@ -1725,15 +1725,15 @@ a.list_bt {
 }
 
 .pic figure {
-	width: 80px;
-	height: 80px;
+	width: 100px;
+	height: 100px;
 	overflow: hidden;
 }
 
 .pic figure img {
 	width: 80px;
-	height: 80px;
-	border: 5px solid rgba(0, 0, 0, 0.2);
+	height: 100px;
+	/* border: 5px solid rgba(0, 0, 0, 0.2); */
 }
 
 .comment {
@@ -1741,7 +1741,7 @@ a.list_bt {
 	padding-left: 25px;
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-style: italic;
-	font-size: 18px;
+	font-size: 16px;
 }
 
 /*-------- 2.5 Contact page --------*/
