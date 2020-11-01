@@ -49,6 +49,8 @@ class TourDetail(models.Model):
     image1 = ResizedImageField(size=[1000,450], upload_to='tour_detail')
     image2 = ResizedImageField(size=[1000,450], upload_to='tour_detail')
     image3 = ResizedImageField(size=[1000,450], upload_to='tour_detail', null=True, blank=True)
+    num_of_days = models.PositiveIntegerField(default=0)
+    num_of_nights = models.PositiveIntegerField(default=0)
     price = models.PositiveIntegerField(default=0)
     description = models.TextField()
     inclusion = models.TextField()
