@@ -3,15 +3,15 @@
         {% csrf_token %}
         <div class="form-group">
             <label for="travel_date">Travel Date</label>
-            <input type="date" class="form-control" id="travel_date" name="travel_date">
+            <input type="date" class="form-control" id="travel_date" name="travel_date" required>
         </div>
         <div class="form-group">
             <label for="fullname_booking">Full Name</label>
-            <input type="text" class="form-control" id="fullname_booking" name="fullname" placeholder="Enter your full name">
+            <input type="text" class="form-control" id="fullname_booking" name="fullname" placeholder="Enter your full name" required>
         </div>
         <div class="form-group">
             <label for="email_booking">Email</label>
-            <input type="email" class="form-control" id="email_booking" name="email" placeholder="Enter your Email">
+            <input type="email" class="form-control" id="email_booking" name="email" placeholder="Enter your Email" required>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -19,23 +19,22 @@
                     <label for="telephone_booking">Mobile</label>
                     <div class="row">
                         <div class="col-sm-4" id="book_now_form_mobile_codes">
-                            <input name="code" list="codes" class="form-control" autocomplete="off" placeholder="+91">
+                            <input name="code" list="codes" class="form-control" autocomplete="off" placeholder="+91" required>
                             <datalist id="codes">
                             {% include 'country_codes.html' %}
                             </datalist>
                         </div>
                         <div class="col-sm-9" id="book_now_form_mobile_field">
-                            <input type="tel" class="form-control" id="telephone_booking" name="mobile" placeholder="Enter your mobile number">
+                            <input type="tel" class="form-control" id="telephone_booking" name="mobile" placeholder="Enter your mobile number" required>
                         </div>
-                    </div>
-                    
+                    </div>                    
                 </div>
             </div>
         </div>
         
         <div class="form-group">
             <label for="people_booking">Number of People</label>
-            <input type="tel" class="form-control" id="people_booking" name="people" placeholder="Enter the number of people">
+            <input type="tel" class="form-control" id="people_booking" name="people" placeholder="Enter the number of people" required>
         </div>
         <div class="form-group">
             <input type="submit" value="Book Now" class="btn_full" id="submit-booking">
