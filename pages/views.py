@@ -99,3 +99,8 @@ def team_profile(request):
         return render(request, 'profile.html', {
             'profiles': profiles
         })
+
+
+def terms_and_conditions(request):
+    if request.method == 'GET':
+        return render(request, 'terms_of_conditions.html')
