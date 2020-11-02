@@ -541,7 +541,7 @@ only screen and (-o-min-device-pixel-ratio: 2/1),
 only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (min-device-pixel-ratio: 2) {
 	#logo_home h1 a {
-		background-image: url(../img/logo.png);
+		background-image: url(../img/logo.jpeg);
 		background-size: 200px 68px;
 		margin-top: -10px;
 		padding-top: 8px;
