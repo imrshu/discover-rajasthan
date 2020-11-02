@@ -118,7 +118,7 @@ a#search_bt span{ display:none;}
 
 @media only screen and (max-width: 991px) {
 	
-#header_menu{text-align:center;padding:25px 15px 25px 15px;position:relative;display:block; background:#999 url(../img/pattern_3.png) repeat;}
+#header_menu{text-align:center;position:relative;display:block; background:#ffffff url(../img/pattern_3.png) repeat;}
 
 .main-menu ul li a:hover,
 a.show-submenu:hover,
@@ -231,6 +231,6 @@ header .cmn-toggle-switch span::after, header .cmn-toggle-switch span::before {b
 @media only screen and (max-width: 600px) {
 .main-menu {width: 100%;}
 a#close_in {display:block;position:absolute;right:15px;top:10px;width:24px;height:24px;}
-#close_in i{color:#fff !important;font-size:24px;}
+#close_in i{color:#5f5959 !important;font-size:24px;}
 
 }
