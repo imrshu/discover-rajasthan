@@ -526,10 +526,10 @@ ul#tools_top li a.search-overlay-menu-btn:hover {
 
 #logo_home h1 a {
 	display: block;
-	background-image: url(../img/logo.png);
+	background-image: url(../img/logo.jpeg);
 	background-repeat: no-repeat;
 	background-position: left top;
-	background-size: 85px 68px;
+	background-size: 200px 68px;
 	margin-top: -10px;
 	padding-top: 8px;
 	padding-bottom: 25px;
@@ -542,7 +542,7 @@ only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (min-device-pixel-ratio: 2) {
 	#logo_home h1 a {
 		background-image: url(../img/logo.png);
-		background-size: 85px 68px;
+		background-size: 200px 68px;
 		margin-top: -10px;
 		padding-top: 8px;
 		padding-bottom: 30px;

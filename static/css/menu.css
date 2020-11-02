@@ -118,7 +118,7 @@ a#search_bt span{ display:none;}
 
 @media only screen and (max-width: 991px) {
 	
-#header_menu{text-align:center;padding:25px 15px 25px 15px;position:relative;display:block; background:#65318f url(../img/pattern_3.png) repeat;}
+#header_menu{text-align:center;padding:25px 15px 25px 15px;position:relative;display:block; background:#999 url(../img/pattern_3.png) repeat;}
 
 .main-menu ul li a:hover,
 a.show-submenu:hover,
