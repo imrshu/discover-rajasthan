@@ -91,8 +91,9 @@
 									<img src="{{ tour.image.url }}" style="width: 800px; height: 240px;" class="img-responsive" alt="{{tour.title}}">
 									<div class="short_info">
 										<h3>{{tour.title}}</h3>
+										<em>{{tour.tourdetail.num_of_days}} Days & {{tour.tourdetail.num_of_nights}} Nights</em>
 										<p>
-											{{tour.description}}
+											{{tour.description|truncatewords:10}}
 										</p>
 									</div>
 								</a>
