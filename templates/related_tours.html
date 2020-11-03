@@ -5,7 +5,7 @@
     <div>
         <div class="img_wrapper">
             <div class="price_grid">
-                <sup><i class="icon-rupee"></i></sup>{{ tour.tourdetail.price }}
+                <sup><i class="icon-rupee"></i></sup>{{ tour.price }}
             </div>
             <!-- End tools i -->
             <div class="img_container">
@@ -14,7 +14,7 @@
                     <div class="short_info">
                         <h3>{{ tour.title }}</h3>
                         <p>
-                            {{ tour.tourdetail.description }}
+                            {{ tour.tourdetail.description|truncatewords:15 }}
                         </p>
                     </div>
                 </a>
