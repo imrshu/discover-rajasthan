@@ -11,32 +11,22 @@
         <div class="col-md-12 tour_detail_highlight_icons">
             {% if tour_detail.flight_included == True %}
                 <i class="icon-flight tour_detail_highlight_icon_bold" title="Flight"></i>
-            {% else %}
-                <i class="icon-flight tour_detail_highlight_icon_unbold" title="Flight"></i>
             {% endif %}
 
             {% if tour_detail.cab_included == True %}
                 <i class="icon_set_1_icon-21 tour_detail_highlight_icon_bold" title="Private Cab"></i>
-            {% else %}
-                <i class="icon_set_1_icon-21 tour_detail_highlight_icon_unbold" title="Private Cab"></i>
             {% endif %}
 
             {% if tour_detail.breakfast_included == True %}
                 <i class="icon_set_1_icon-14 tour_detail_highlight_icon_bold" title="Breakfast"></i>
-            {% else %}
-                <i class="icon_set_1_icon-14 tour_detail_highlight_icon_unbold" title="Breakfast"></i>
             {% endif %}
 
             {% if tour_detail.hotel_included == True %}
                 <i class="icon_set_1_icon-6 tour_detail_highlight_icon_bold" title="Hotel"></i>
-            {% else %}
-                <i class="icon_set_1_icon-6 tour_detail_highlight_icon_unbold" title="Hotel"></i>
             {% endif %}
 
             {% if tour_detail.sightseeing_included == True %}
                 <i class="tour_detail_highlight_icon_bold" title="Sightseeing"><img src="https://img.icons8.com/ios/30/000000/binoculars.png"/></i>
-            {% else %}
-                <i class="tour_detail_highlight_icon_unbold" title="Sightseeing"><img src="https://img.icons8.com/ios/30/000000/binoculars.png"/></i>
             {% endif %}
         </div>
     </div>
@@ -65,6 +55,11 @@
     <div class="row">
         <div class="col-md-12" style="text-align: center; color: #b11b1b; margin-top: 10px;">
             <small>*{{tour_detail.special_highlight|title}}*</small>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" style="text-align: center; color: #1c7f44; margin-top: 10px;">
+            <small>*As per customization*</small>
         </div>
     </div>
 </div>
