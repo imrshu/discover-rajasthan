@@ -2,6 +2,13 @@
 
 {% load static %}
 
+{% block desc %}
+
+	<meta name="description" content="{{ tour_detail.description }}">
+	<meta name="keywords" content="{{ tour_detail.keywords }}">
+
+{% endblock %}
+
 {% block title %}
 	Epic Rajasthan Tours | {{ tour.title }} Tour
 {% endblock %}
