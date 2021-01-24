@@ -62,6 +62,7 @@ class TourDetail(models.Model):
     hotel_included = models.BooleanField(default=False)
     sightseeing_included = models.BooleanField(default=False)
     special_highlight = models.CharField(max_length=100)
+    keywords = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
