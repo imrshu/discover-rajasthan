@@ -19,6 +19,9 @@ class Category(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return f'/packages/category/{self.slug}/tours/'
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
@@ -39,6 +42,9 @@ class Tour(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return f'/packages/category/{self.category.slug}/tours/{self.slug}/'
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
